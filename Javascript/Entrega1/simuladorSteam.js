@@ -102,7 +102,7 @@ function buscarJuego(juegoCompra) {
         i++
     }
     if(encuentra == false) {
-        juego = null 
+        return null 
     }
 }
 
@@ -146,14 +146,12 @@ function videoJuegoMasCaro(array) {
     let juegoMasCaro
 
     if(array.length == 0) {
-        console.log("Entre aqui caro")
         return null
     } else {
         array.forEach(juego => {
             if(juego.price > precioJuegoMasCaro) {
                 precioJuegoMasCaro = juego.price
                 juegoMasCaro = juego
-                console.log("Entreereeee caro")
             }
         });
     }
@@ -170,46 +168,40 @@ function videoJuegoMasJugado(array) {
     let juegoMasJugado
 
     if(array.length == 0) {
-        console.log("Entre aqui jugado")
         return null
     } else {
         array.forEach(juego => {
             if(juego.hs > hsJuegoMasJugado) {
                 hsJuegoMasJugado = juego.hs
                 juegoMasJugado = juego
-                console.log("Entreereeee jugado")
             }
         });
     }
-    console.log(juegoMasJugado)
     return juegoMasJugado
 }
 
 /* Login de la cuenta */
 alert("Bienvenido!")
-
-//let user = prompt("Ingrese su usuario: ")
-//let pass = prompt("Ingrese su contraseña: ")
-
+let user = prompt("Ingrese su usuario: ")
+let pass = prompt("Ingrese su contraseña: ")
 
 // userData.name userData.password
-let user = "Cesar" 
-let pass = 2904
+// let user = "Cesar" 
+// let pass = 2904
 
-if(user == "Cesar" && pass == 2904) {
+if(user == userData.name && pass == userData.password) {
     
     let salir = false
     alert(`Bienvenido! ${user}`)
     do {
+        /* Primer menu antes de escoger una opcion */
         let cadenaJuegos = ''
         let opcion
         opcion = menu()
-        console.log(opcion)
-        console.log("holaa")
-        //console.log(opcion)
         switch(opcion) {
             /* Comprar juego */
             case 1: 
+            /* Declaracionde variables */
             let juegoComprado
             let respuesta 
             let juego 
@@ -217,39 +209,28 @@ if(user == "Cesar" && pass == 2904) {
 
             cadenaJuegos = desplegarJuegos(coleccJuegos) 
             juegoCompra = prompt('Que juego desea comprar ? \n' + cadenaJuegos)
-
-
-            console.log("que")
             console.log(juegoCompra)
-
-
             juego = buscarJuego(juegoCompra)
             juegoComprado = verificaSiTiene(juego)
             console.log(juegoComprado)
 
-            // console.log(juego)
-
-            if(Object.keys(juego).length > 0 && juegoComprado == false) {
+            if(juego == null) {
+                alert("No existe el juego")
+                /* Verifico que el objeto tenga alguna clave y que no lo haya comprado antes */
+            } else if(Object.keys(juego).length > 0 && juegoComprado == false) {
                 respuesta = confirm(`Desea comprar ${juego.name} ?`)
                 if(respuesta && userData.saldo > juego.price) {
-                    alert("Juego comprado con exito!")
+                    alert("Gracias por comprar en Steam!")
                     misJuegos.push({ name: juego.name, price: juego.price, hs: (Math.floor(Math.random() * 9) + 1) *10 })
                     userData.saldo = userData.saldo - juego.price
-                    /* miramos la consola */
-                    //console.log(juego)
-                    //console.log(misJuegos)
-                    //console.log(userData.saldo)
                 } else if(userData.saldo < juego.price) {
                     alert("Saldo insuficiente")
+                    console.log(userData.saldo)
                 } else {
                     alert("En otra ocasion sera!")
                 }
-            } else if(juego == null) {
-                alert("No existe el juego")
             } else if(juegoComprado){
                 alert("Ya tienes este juego")
-            } else {
-                console.log("salteee")
             }
             
             break
@@ -260,8 +241,6 @@ if(user == "Cesar" && pass == 2904) {
             break
             /* Ver mis juegos */
             case 3:
-                console.log(333333)
-            console.log(misJuegos[0])
             cadenaJuegos = desplegarMisJuegos(misJuegos)
             if(cadenaJuegos == '') {
                 alert("No tienes juegos en tu biblioteca")

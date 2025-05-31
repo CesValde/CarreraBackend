@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(0, 60, 119);
+    background-image: url('./store_home_share.jpg');
+}
+
+h1 {
+    color:rgb(224, 222, 222) ;
+    font-size: 75px;
+    text-align: center;
+    margin-top: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
