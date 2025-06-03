@@ -1,13 +1,14 @@
+> Cada carpeta tendra los metodos utlizados (para tener en cuenta para una mayor facilidad de busqueda entre carpetas) 
+
 # Semana 1 
 
 # Semana 2
 
 # Semana 3
 
-
 # Semana 4
 **Arrays - Objetos**
-> Metodos utilizados. (para tener en cuenta para una mayor facilidad de busqueda entre carpetas)
+
 ```javascript
 
 /* Metodos arrays */
@@ -36,6 +37,3 @@ for(const{alumno, nota} of alumnos)
 
 # Semana 5
 **Clases/Objetos - LocalStorage**
-> Metodos utilizados. (para tener en cuenta para una mayor facilidad de busqueda entre carpetas)
-
-
