@@ -1,14 +1,50 @@
 > Cada carpeta tendra los metodos utlizados (para tener en cuenta para una mayor facilidad de busqueda entre carpetas) 
 
 # Semana 1 
+**Intro - variables/tipos de datos**
+```javascript
+let variable
+const PI 
+let coleccion = []
+```
 
 # Semana 2
+**Condicionales - Bucles**
+```javascript
+/* Muestra un cartel con el texto envuelto */
+alert()
+
+/* Caja de texto para el usuario */
+prompt()
+
+/* condional if */
+if(x > 10) {
+    alert(`${x} es mayor a 10`)
+} else {
+    alert(`${x} es menor a 10`)
+}
+
+while(seguir) {
+    'escribe esto'
+}
+
+switch(opcion) {
+    case opcionX: 
+        alert(`esta opcion es la ${opcionX}`)
+    break
+    case opcionY:
+        alert(`esta opcion es la ${opcionY}`)
+    break
+    default:
+        alert(`esta opcion es la default`)
+}
+```
 
 # Semana 3
+**Funciones**
 
 # Semana 4
 **Arrays - Objetos**
-
 ```javascript
 
 /* Metodos arrays */
