@@ -65,6 +65,9 @@ filter((elem) => elem.nota < 6)
 /* Ordena de mayor a menor */
 sort((a,b) => a-b)
 
+/* Elimina el/los elementos index del array */
+splice(index, 1)
+
 const{total, cantidad} = acumulador[alumno]     // desestructuración de objeto, acumulador y alumno son objetos
 
 /* itera objetos */
@@ -73,3 +76,83 @@ for(const{alumno, nota} of alumnos)
 
 # Semana 5
 **Clases/Objetos - LocalStorage**
+
+# Semana 6 
+**Funciones de orden superior**
+```javascript
+/* ForEach */
+array.forEach((elem), index, array) {
+    console.log(`Element at index ${index}: ${elem}`);
+}
+
+/* Util para encontrar el primer valor que cumpla una condicion de un array */
+find((elem), elem.x > valor)
+
+/* Util para convertir un array en otro nuevo */
+map((x) => x * 2)
+
+/* Funciones de orden superior */
+const numeros = [1, 2, 3, 4];
+
+function porCadaUno(array, fn) {
+    for (let i = 0; i < array.length; i++) {
+        fn(array[i]);   // fn es console.log() en este ambito
+    }
+}
+porCadaUno(numeros, console.log);
+// 1
+// 2
+// 3
+// 4
+
+// Reduce() Este método ejecuta una función reductora en cada elemento del array (de izquierda a derecha), acumulando el resultado en un valor único */
+/*  Sintaxis:
+    indiceActual (opcional): El índice del elemento actual.
+    array (opcional): El array original sobre el cual se está aplicando el método reduce.
+*/
+array.reduce(function(acumulador, valorActual, indiceActual, array) {
+    // Código para combinar acumulador y valorActual
+}, valorInicial);
+
+/* Contar la cantidad de ocurrencias de elementos en un array: */
+const frutas = ['manzana', 'banana', 'naranja', 'manzana', 'naranja', 'banana', 'banana'];
+
+const conteoFrutas = frutas.reduce(function(conteo, fruta) {
+    conteo[fruta] = (conteo[fruta] || 0) + 1;
+    return conteo;
+}, {});     // Ese {} es un objeto vacío, y ese objeto se convierte en el acumulador inicial llamado conteo.
+
+console.log(conteoFrutas);
+// { manzana: 2, banana: 3, naranja: 2 }
+```
+
+# Semana 7 
+```javascript
+/* getElementById() Se utiliza para acceder a un único elemento del DOM que tiene un atributo id específico */
+// HTML de referencia
+<div id="app">
+  <p id="parrafo1">Hola Mundo</p>
+</div>
+let elemento = document.getElementById('parrafo1')
+
+/* getElementByClassName() se usa para obtener todos los elementos que tienen una clase específica. */
+// HTML de referencia
+<ul>
+  <li class="paises">AR</li><li class="paises">CL</li><li class="paises">UY</li>
+</ul>
+let paises = document.getElementById('paises')
+
+/* getElementsByTagName() permite acceder a todos los elementos del DOM que tienen un nombre de etiqueta específico */
+// HTML de referencia
+<div>
+  <div>CONTENEDOR 2</div><div>CONTENEDOR 3</div>
+</div>
+let contenedores = document.getElementsByTagName("div");
+console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
+console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
+
+/* querySelectors permite seleccionar el primer elemento del DOM que coincida con uno o más selectores CSS especificados. Metodo útil cuando se necesita acceder rápidamente a un solo elemento que cumpla con ciertos criterios, utilizando la misma sintaxis que se usa en CSS */
+let elemento = document.querySelector('selector-css');
+let elemento = document.querySelectorAll('selector-css');
+
+```
