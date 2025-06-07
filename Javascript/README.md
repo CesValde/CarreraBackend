@@ -42,6 +42,23 @@ switch(opcion) {
 
 # Semana 3
 **Funciones**
+```javascript
+/* Funcion flechas */
+const saludar = () => {
+  console.log("Hola mundo");
+};
+
+/* Declaracion de funcion */
+function saludar(nombre) {
+  return `Hola, ${nombre}`;
+}
+
+/* Funcion anonima */
+setTimeout(function() {
+  console.log("Hola desde una función anónima");
+}, 1000);
+
+```
 
 # Semana 4
 **Arrays - Objetos**
@@ -76,6 +93,43 @@ for(const{alumno, nota} of alumnos)
 
 # Semana 5
 **Clases/Objetos - LocalStorage**
+```javascript
+class Persona {
+    constructor(nombre, edad, calle) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.calle = calle;
+    }
+
+    describir() {
+        return `Nombre: ${this.nombre}, Edad: ${this.edad}, Calle: ${this.calle}`;
+    }
+}
+// Crear un nuevo objeto Persona
+const persona1 = new Persona("Ana", 25, "Calle Falsa 123");
+console.log(persona1.describir());
+
+/* local storage */
+// Guardar datos
+localStorage.setItem('usuario', 'JuanPerez');
+// Obtener datos
+let usuario = localStorage.getItem('usuario');
+console.log(usuario); // 'JuanPerez'
+// Eliminar datos
+localStorage.removeItem('usuario');
+
+/* Session Storage */
+// Guardar datos
+sessionStorage.setItem('detalleCompra', 'Libro de JavaScript');
+// Obtener datos
+let detalle = sessionStorage.getItem('detalleCompra');
+console.log(detalle); // 'Libro de JavaScript'
+// Eliminar datos al cerrar la pestaña
+sessionStorage.removeItem('detalleCompra');
+
+/* Para recuperar objeto en json */
+let usuarioRecuperado = JSON.parse(localStorage.getItem('usuario'));
+```
 
 # Semana 6 
 **Funciones de orden superior**
