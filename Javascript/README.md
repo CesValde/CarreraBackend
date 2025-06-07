@@ -130,23 +130,29 @@ console.log(conteoFrutas);
 ```javascript
 /* getElementById() Se utiliza para acceder a un único elemento del DOM que tiene un atributo id específico */
 // HTML de referencia
+/* 
 <div id="app">
   <p id="parrafo1">Hola Mundo</p>
-</div>
+</div> 
+*/
 let elemento = document.getElementById('parrafo1')
 
 /* getElementByClassName() se usa para obtener todos los elementos que tienen una clase específica. */
 // HTML de referencia
+/* 
 <ul>
   <li class="paises">AR</li><li class="paises">CL</li><li class="paises">UY</li>
-</ul>
+</ul> 
+*/
 let paises = document.getElementById('paises')
 
 /* getElementsByTagName() permite acceder a todos los elementos del DOM que tienen un nombre de etiqueta específico */
 // HTML de referencia
+/* 
 <div>
   <div>CONTENEDOR 2</div><div>CONTENEDOR 3</div>
-</div>
+</div> 
+*/
 let contenedores = document.getElementsByTagName("div");
 console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
 console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
