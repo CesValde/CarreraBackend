@@ -181,6 +181,7 @@ console.log(conteoFrutas);
 ```
 
 # Semana 7 
+**Elementos del DOM**
 ```javascript
 /* getElementById() Se utiliza para acceder a un único elemento del DOM que tiene un atributo id específico */
 // HTML de referencia
@@ -212,7 +213,51 @@ console.log(contenedores[0].innerHTML); // Muestra "CONTENEDOR 2"
 console.log(contenedores[1].innerHTML); // Muestra "CONTENEDOR 3"
 
 /* querySelectors permite seleccionar el primer elemento del DOM que coincida con uno o más selectores CSS especificados. Metodo útil cuando se necesita acceder rápidamente a un solo elemento que cumpla con ciertos criterios, utilizando la misma sintaxis que se usa en CSS */
-let elemento = document.querySelector('selector-css');
-let elemento = document.querySelectorAll('selector-css');
-
+let elemento = document.querySelector('selector-css')
+let elemento = document.querySelectorAll('selector-css')
 ```
+
+Modificar nodos existentes
+```javascript
+/* innerHTML: Este método permite leer o modificar el contenido HTML interno de un elemento. Se utiliza para actualizar todo el contenido de un nodo de una sola vez. */
+let contenedor = document.getElementById('contenedor')
+contenedor.innerHTML = '<h2>Nuevo título</h2><p>Nuevo párrafo</p>'
+
+/* innerText / textContent: Permiten modificar el texto dentro de un nodo. innerText considera el estilo y el renderizado actual, mientras que textContent devuelve el contenido textual sin tener en cuenta el estilo. */
+let titulo = document.getElementById('titulo')
+titulo.innerText = 'Texto actualizado'
+
+/* setAttribute(): Se usa para modificar o establecer un nuevo atributo en un elemento. */
+let enlace = document.querySelector('a')
+enlace.setAttribute('href', 'https://www.example.com')
+```
+
+Añadir nodos
+```javascript
+/* createElement(): Este método permite crear un nuevo elemento en el DOM. */
+let nuevoDiv = document.createElement('div')
+nuevoDiv.innerHTML = '<p>Este es un nuevo div</p>'
+document.body.appendChild(nuevoDiv);
+
+/* appendChild(): Añade un nodo como el último hijo de un nodo padre. */
+let lista = document.getElementById('lista')
+let nuevoItem = document.createElement('li')
+nuevoItem.textContent = 'Nuevo ítem'
+lista.appendChild(nuevoItem)
+
+/* insertBefore(): Inserta un nodo antes de un nodo hijo específico. */
+let primerItem = lista.firstChild
+lista.insertBefore(nuevoItem, primerItem)
+```
+
+Eliminar nodos
+```javascript
+/* removeChild(): Este método elimina un nodo hijo de un elemento. */
+let itemAEliminar = document.getElementById('item')
+lista.removeChild(itemAEliminar)
+
+/* remove(): Elimina directamente el nodo seleccionado. */
+let elemento = document.getElementById('elemento')
+elemento.remove()
+```
+
