@@ -93,6 +93,8 @@ for(const{alumno, nota} of alumnos)
 
 # Semana 5
 **Clases/Objetos - LocalStorage**
+
+Clase:
 ```javascript
 class Persona {
     constructor(nombre, edad, calle) {
@@ -108,7 +110,10 @@ class Persona {
 // Crear un nuevo objeto Persona
 const persona1 = new Persona("Ana", 25, "Calle Falsa 123");
 console.log(persona1.describir());
+```
 
+Local/Session Storage:
+```javascript
 /* local storage */
 // Guardar datos
 localStorage.setItem('usuario', 'JuanPerez');
@@ -133,17 +138,13 @@ let usuarioRecuperado = JSON.parse(localStorage.getItem('usuario'));
 
 # Semana 6 
 **Funciones de orden superior**
+
+forEach, ejemplo de orden superior(porCadaUno):
 ```javascript
 /* ForEach */
 array.forEach((elem), index, array) {
     console.log(`Element at index ${index}: ${elem}`);
 }
-
-/* Util para encontrar el primer valor que cumpla una condicion de un array */
-find((elem), elem.x > valor)
-
-/* Util para convertir un array en otro nuevo */
-map((x) => x * 2)
 
 /* Funciones de orden superior */
 const numeros = [1, 2, 3, 4];
@@ -158,7 +159,10 @@ porCadaUno(numeros, console.log);
 // 2
 // 3
 // 4
+```
 
+reduce, map, find:
+```javascript
 // Reduce() Este método ejecuta una función reductora en cada elemento del array (de izquierda a derecha), acumulando el resultado en un valor único */
 /*  Sintaxis:
     indiceActual (opcional): El índice del elemento actual.
@@ -178,6 +182,12 @@ const conteoFrutas = frutas.reduce(function(conteo, fruta) {
 
 console.log(conteoFrutas);
 // { manzana: 2, banana: 3, naranja: 2 }
+
+/* Util para convertir un array en otro nuevo */
+map((x) => x * 2)
+
+/* Util para encontrar el primer valor que cumpla una condicion de un array */
+find((elem), elem.x > valor)
 ```
 
 # Semana 7 
@@ -217,7 +227,7 @@ let elemento = document.querySelector('selector-css')
 let elemento = document.querySelectorAll('selector-css')
 ```
 
-Modificar nodos existentes
+Modificar nodos existentes:
 ```javascript
 /* innerHTML: Este método permite leer o modificar el contenido HTML interno de un elemento. Se utiliza para actualizar todo el contenido de un nodo de una sola vez. */
 let contenedor = document.getElementById('contenedor')
@@ -232,7 +242,7 @@ let enlace = document.querySelector('a')
 enlace.setAttribute('href', 'https://www.example.com')
 ```
 
-Añadir nodos
+Añadir nodos:
 ```javascript
 /* createElement(): Este método permite crear un nuevo elemento en el DOM. */
 let nuevoDiv = document.createElement('div')
@@ -250,7 +260,7 @@ let primerItem = lista.firstChild
 lista.insertBefore(nuevoItem, primerItem)
 ```
 
-Eliminar nodos
+Eliminar nodos:
 ```javascript
 /* removeChild(): Este método elimina un nodo hijo de un elemento. */
 let itemAEliminar = document.getElementById('item')
@@ -261,3 +271,31 @@ let elemento = document.getElementById('elemento')
 elemento.remove()
 ```
 
+Inyección de Variables y Expresiones en el DOM:
+```javascript
+const nombre = "Juan";
+const edad = 30;
+const contenedor = document.getElementById('info');
+contenedor.innerHTML = `
+  <h2>Información del Usuario</h2>
+  <p>Nombre: ${nombre}</p>
+  <p>Edad: ${edad}</p>
+`
+```
+
+Incluir Expresiones Complejas:
+```javascript
+const productos = [
+  { nombre: "Arroz", precio: 125 },
+  { nombre: "Fideos", precio: 70 },
+  { nombre: "Pan", precio: 50 }
+]
+
+const contenedor = document.getElementById('productos');
+contenedor.innerHTML = `
+  <h2>Lista de Productos</h2>
+  <ul>
+    ${productos.map(producto => `<li>${producto.nombre} - $${producto.precio}</li>`).join('')}
+  </ul>
+`
+```
