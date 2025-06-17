@@ -11,6 +11,8 @@ import {
   videoJuegoMasJugado
 } from './functions.js';
 
+import { Juego } from './clases.js';
+
 /* Constantes */
 const userData = {
     name: "Cesar",
@@ -19,11 +21,11 @@ const userData = {
 }
 
 export const coleccJuegos = [
-    {name: "Lies of P", price: 30},
-    {name: "Elden Ring", price: 60},
-    {name: "Hollow Knight", price: 10},
-    {name: "Sekiro Die Twice", price: 35},
-    {name: "Cuphead", price: 20}
+    {name: "Lies of P", price: 30, logros: 62},
+    {name: "Elden Ring", price: 60, logros: 70},
+    {name: "Hollow Knight", price: 10, logros: 56},
+    {name: "Sekiro Die Twice", price: 35, logros: 52},
+    {name: "Cuphead", price: 20, logros: 30}
 ]
 
 // agregar juegos para hacer testeos
@@ -34,6 +36,10 @@ alert("Bienvenido!")
 let user = prompt("Ingrese su usuario: ")
 let pass = prompt("Ingrese su contraseña: ")
 
+// Manejo de DOM
+let bienvenida = document.getElementById('bienvenida')
+bienvenida = bienvenida.innerText = (`Bienvenido a Steam ${user}!`)
+
 // userData.name userData.password
 // let user = "Cesar" 
 // let pass = 2904
@@ -41,7 +47,7 @@ let pass = prompt("Ingrese su contraseña: ")
 if(user == userData.name && pass == userData.password) {
     
     let salir = false
-    alert(`Bienvenido! ${user}`)
+    alert(bienvenida)
     do {
         /* Primer menu antes de escoger una opcion */
         let cadenaJuegos = ''
@@ -51,34 +57,39 @@ if(user == userData.name && pass == userData.password) {
             /* Comprar juego */
             case 1: 
             /* Declaracionde variables */
-            let juegoComprado
+            let comprado
             let respuesta 
             let juego 
             let juegoCompra = ''
 
-            cadenaJuegos = desplegarJuegos(coleccJuegos) 
+            cadenaJuegos = desplegarJuegos(coleccJuegos)
             juegoCompra = prompt('Que juego desea comprar ? \n' + cadenaJuegos)
             console.log(juegoCompra)
             juego = buscarJuego(juegoCompra)
-            juegoComprado = verificaSiTiene(juego)
-            console.log(juegoComprado)
+            comprado = verificaSiTiene(juego)
+            console.log(comprado)
 
             if(juego == null) {
                 alert("No existe el juego")
-                /* Verifico que el objeto tenga alguna clave y que no lo haya comprado antes */
-            } else if(Object.keys(juego).length > 0 && juegoComprado == false) {
+                /* Verifico que el objeto tenga alguna clave (si existe en Steam) y que no lo haya comprado antes */
+            } else if(Object.keys(juego).length > 0 && comprado == false) {
                 respuesta = confirm(`Desea comprar ${juego.name} ?`)
                 if(respuesta && userData.saldo > juego.price) {
                     alert("Gracias por comprar en Steam!")
-                    misJuegos.push({ name: juego.name, price: juego.price, hs: (Math.floor(Math.random() * 9) + 1) *10 })
+                    misJuegos.push(new Juego({name: juego.name, price: juego.price, hs: ((Math.floor(Math.random() * 9) + 1) *10), logros: juego.logros}))
                     userData.saldo = userData.saldo - juego.price
+                    // DOM 
+                    let filaJuego = document.createElement('main')
+                    filaJuego.innerHTML = `<p> ${juego.name} se a añadido a tu biblioteca </p>`
+                    const main = document.querySelector('main');
+                    main.appendChild(filaJuego);
                 } else if(userData.saldo < juego.price) {
                     alert("Saldo insuficiente")
                     console.log(userData.saldo)
                 } else {
                     alert("En otra ocasion sera!")
                 }
-            } else if(juegoComprado){
+            } else if(comprado){
                 alert("Ya tienes este juego")
             }
             
