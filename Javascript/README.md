@@ -299,3 +299,44 @@ contenedor.innerHTML = `
   </ul>
 `
 ```
+
+Enlaces y rutas:
+**Enlaces Relativos**
+```javascript
+/* 
+  Los enlaces relativos apuntan a recursos ubicados en la misma estructura o servidor que la página actual.
+  Son útiles cuando se enlaza a otros documentos o recursos dentro del mismo sitio web 
+*/
+<a href="pagina2.html">Ir a la página 2</a>
+/* 
+  pagina2.html está en el mismo directorio que la página actual. El enlace llevará al usuario a pagina2.html cuando se haga clic. 
+*/
+
+/* Subdirectorio */
+<a href="carpeta/pagina3.html">Ir a la página 3</a>
+/* Este enlace apunta a pagina3.html dentro de la carpeta carpeta. */
+
+/* Directorio Padre */
+<a href="../pagina4.html">Ir a la página 4</a>
+/* Este enlace navega un nivel hacia arriba en la estructura de directorios antes de buscar pagina4.html */
+```
+
+**Enlaces Absolutos**
+```javascript
+// Los enlaces absolutos especifican la ruta completa a un recurso, incluyendo el protocolo (como http:// o https://), el dominio, y la ruta completa del archivo.
+
+<a href="https://www.ejemplo.com/pagina2.html">Visitar Ejemplo</a>
+```
+
+**Enlaces Internos**
+```javascript
+// Anclas en la misma pagina
+<a href="#seccion1">Ir a la Sección 1</a>
+...
+<h2 id="seccion1">Sección 1</h2>
+// En este ejemplo, el enlace lleva al usuario directamente a la sección etiquetada con id="seccion1" dentro de la misma página.
+
+// Enlaces internos a otras páginas:
+<a href="pagina2.html#seccion2">Ir a la Sección 2 en Página 2</a>
+/* Este enlace lleva al usuario a seccion2 dentro de pagina2.html. */
+```
