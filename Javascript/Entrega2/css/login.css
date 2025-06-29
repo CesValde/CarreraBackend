@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    color: white;
+    font-family: 'Red Hat Display';
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: 0.5fr 2fr 0.5fr;
+    background-color: #1b2838;
+}
+
+nav {
+    place-content: center;
+    text-align: center;
+}
+
+div {
+    background-color: #0a1521;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;     
+}
+
+#sesion {
+    width: 20%;
+    height: 30%;
+    padding: 5rem ;
+    background-color: rgb(22, 24, 38);
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+input {
+    width: 14rem;
+    color:aliceblue;
+    border-radius: 5px;
+    padding: 0.6rem;
+    background-color: #1b2838;
+    border-style: none;
+}
+
+button {
+    color:aliceblue;
+    border-radius: 5px;
+    padding: 0.7rem;
+    background-color: #1b2838;
+    border-style: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(30, 51, 77);
+}
+
+button.desactivado,
+button.desactivado:hover {
+    transition: background-color 0.7s ease, color 0.7s ease;
+    cursor: not-allowed;
+    background-color: #0e141c;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+footer {
+    text-align: center;
+    place-content: center;
+}

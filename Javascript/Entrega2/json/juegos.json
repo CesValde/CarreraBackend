@@ -1,0 +1,46 @@
+{
+  "juegos": [
+    {
+      "titulo": "Lies of P",
+      "precio": 59.99,
+      "horasJugadas": 42,
+      "tienePlatino": true,
+      "imagen": "Lies_of_p.jpg"
+    },
+    {
+      "titulo": "Sekiro: Shadows Die Twice",
+      "precio": 49.99,
+      "horasJugadas": 60,
+      "tienePlatino": false,
+      "imagen": "sekiro.jpeg"
+    },
+    {
+      "titulo": "Cuphead",
+      "precio": 19.99,
+      "horasJugadas": 35,
+      "tienePlatino": true,
+      "imagen": "cuphead.jpg"
+    },
+    {
+      "titulo": "Muse Dash",
+      "precio": 2.99,
+      "horasJugadas": 20,
+      "tienePlatino": false,
+      "imagen": "musedash.jpg"
+    },
+    {
+      "titulo": "Hollow Knight",
+      "precio": 14.99,
+      "horasJugadas": 55,
+      "tienePlatino": false,
+      "imagen": "hollow.png"
+    },
+    {
+      "titulo": "Elden Ring",
+      "precio": 59.99,
+      "horasJugadas": 80,
+      "tienePlatino": false,
+      "imagen": "eldenring.jpg"
+    }
+  ]
+}

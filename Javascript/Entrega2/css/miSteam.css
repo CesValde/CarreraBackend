@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body { 
+    color: white;
+    font-family: 'Red Hat Display';
+    display: grid;
+    min-height: 100dvh;
+    background-color: #1b2838;
+}
+
+#container {
+    display: grid;
+}
+
+header {
+    background-color: rgb(27, 47, 66);
+}
+
+#bienvenida {
+    text-align: center;
+    place-content: center;
+}
+
+#buton-cerrar-sesion {
+    text-align: right;
+    place-content: center;
+}
+
+#lista-juegos {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contenedor-juegos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columnas iguales */
+    gap: 4rem; /* espacio entre tarjetas */
+    padding: 2rem;
+    margin-top: 50px;
+}
+
+img {
+    width: 200px;   /* ancho fijo */
+    height: 250px;  /* alto fijo */
+    object-fit: cover; /* para que la imagen se recorte y no se distorsione */
+}
+
+button {
+    color:aliceblue;
+    border-radius: 5px;
+    padding: 0.7rem;
+    background-color: #274160;
+    border-style: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(30, 51, 77);
+}
+
+#cart-panel {
+    padding: 1rem;
+    text-align: center;
+    place-content: center;
+}
+
+#carrito-juegos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columnas iguales */
+    gap: 4rem; /* espacio entre tarjetas */
+    padding: 2rem;
+}
+
+footer {
+    padding: 1rem;
+    text-align: center;
+    place-content: center;
+    background-color: #274160;
+}
+
+a {
+    font-weight: bold;
+    color: white;
+}
