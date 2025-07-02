@@ -342,97 +342,11 @@ Enlaces y rutas:
 ```
 
 # Semana 8 
-**Asincronismo**
-
-**Ejecucion sincronica**
-se refiere a la ejecución de código de manera secuencial, donde cada línea de código se ejecuta una después de la otra. Esto significa que una operación debe completarse antes de que la siguiente comience. Si una de las operaciones toma mucho tiempo (por ejemplo, una solicitud a un servidor remoto), las demás deben esperar, lo que puede hacer que una aplicación sea lenta o no responda.
-```javascript
-console.log("Inicio");
-let resultado = operacionLenta(); // Supongamos que esta función tarda 5 segundos en completarse
-console.log("Resultado:", resultado);
-console.log("Fin");
-```
-En este caso, hasta que `operacionLenta` no termine, el programa no continuará con la siguiente línea.
-
-**Ejecución Asincrónica**
-permite que el código siga ejecutándose sin necesidad de esperar a que una operación termine. Esto es especialmente útil cuando trabajamos con tareas que pueden tardar un tiempo en completarse, como solicitudes de red, operaciones de lectura/escritura en archivos, o temporizadores.
-```javascript
-console.log("Inicio");
-
-setTimeout(() => {
-    console.log("Esto se ejecuta después de 2 segundos");
-}, 2000);
-
-console.log("Fin");
-```
-En este ejemplo, `setTimeout` permite que el mensaje dentro de su función se muestre después de 2 segundos, mientras que el programa continúa ejecutando las siguientes líneas sin esperar.
-
-**Call Stack**
-```javascript
-function first() {
-    console.log("Primera función");
-    second();
-    console.log("Primera función - Parte 2");
-}
-
-function second() {
-    console.log("Segunda función");
-}
-
-first();
-```
-En este ejemplo, la función ```first()``` se apila primero, luego ```second()```, y después de que ```second()``` termina, se vuelve a ```first()``` hasta que todas las funciones son desapiladas.
-
-**Event Loop**
-Es el mecanismo que permite a JavaScript manejar operaciones asincrónicas, como temporizadores y solicitudes HTTP, a pesar de ser single-threaded. Mientras que el Call Stack maneja las funciones sincrónicas, el Event Loop supervisa la cola de tareas (también llamada Callback Queue), donde se colocan las operaciones asincrónicas una vez que están listas para ser ejecutadas.
-
-Cómo funciona
-Cuando el Call Stack está vacío, el Event Loop toma la primera tarea de la Callback Queue y la coloca en el Call Stack para su ejecución.
-Este proceso continúa, asegurando que las tareas asincrónicas se ejecuten cuando el hilo principal esté libre.
-```javascript
-console.log("Inicio");
-
-setTimeout(() => {
-    console.log("Esto se ejecuta después de 2 segundos");
-}, 2000);
-
-console.log("Fin");
-```
-En este ejemplo, setTimeout coloca la función en la Callback Queue, y el Event Loop la ejecuta después de 2 segundos, una vez que el Call Stack esté vacío.
-
-**setTimeout**
-setTimeout ejecuta una función después de un período de tiempo especificado, expresado en milisegundos. Este método es útil para programar una tarea que debe realizarse después de un retraso, como mostrar un mensaje emergente o realizar una actualización en la interfaz de usuario.
-
-**setInterval**
-La función setInterval es similar a setTimeout, pero en lugar de ejecutar una función solo una vez después de un retraso, la ejecuta repetidamente en intervalos regulares. Esto es útil para tareas que necesitan realizarse periódicamente, como actualizar un reloj en pantalla o verificar el estado de una solicitud de red.
-
-```javascript
-setInterval(function, intervaloEnMilisegundos);
-
-console.log("Inicio");
-setInterval(() => {
-    console.log("Esto se ejecuta cada 1 segundo");
-}, 1000);
-```
-
-**Cancelación de Temporizadores**
-Tanto setTimeout como setInterval pueden ser cancelados si ya no es necesario ejecutar la tarea programada. Para ello, se utilizan los métodos clearTimeout y clearInterval, respectivamente.
-```javascript
-let temporizador = setTimeout(() => {
-    console.log("Esto no se verá nunca");
-}, 3000);
-clearTimeout(temporizador); // Cancela la ejecución del setTimeout
-
-let intervalo = setInterval(() => {
-    console.log("Esto no se verá repetidamente");
-}, 1000);
-clearInterval(intervalo); // Cancela la ejecución del setInterval
-```
-
-# Semana 8 
 **Manejo del asincronismo y errores**
+
 **¿Qué es el Call Stack?**
 El Call Stack (o pila de llamadas) es una estructura de datos en la que se registran las funciones que están siendo ejecutadas en un programa. Cada vez que se invoca una función, esta se apila en el Call Stack. Cuando una función termina de ejecutarse, se desapila, y el control se devuelve a la función anterior en la pila.
+
 **Qué es el Event Loop**
 El Event Loop es el mecanismo que permite a JavaScript manejar operaciones asincrónicas, como temporizadores y solicitudes HTTP, a pesar de ser single-threaded. Mientras que el Call Stack maneja las funciones sincrónicas, el Event Loop supervisa la cola de tareas (también llamada Callback Queue), donde se colocan las operaciones asincrónicas una vez que están listas para ser ejecutadas.
 Cómo funciona:
@@ -458,7 +372,19 @@ setInterval(() => {
     console.log("Esto se ejecuta cada 1 segundo");
 }, 1000);
 ```
+**Cancelación de Temporizadores**
+Tanto setTimeout como setInterval pueden ser cancelados si ya no es necesario ejecutar la tarea programada. Para ello, se utilizan los métodos clearTimeout y clearInterval, respectivamente.
+```javascript
+let temporizador = setTimeout(() => {
+    console.log("Esto no se verá nunca");
+}, 3000);
+clearTimeout(temporizador); // Cancela la ejecución del setTimeout
 
+let intervalo = setInterval(() => {
+    console.log("Esto no se verá repetidamente");
+}, 1000);
+clearInterval(intervalo); // Cancela la ejecución del setInterval
+```
 
 Mejores Prácticas para el Manejo de Errores en JavaScript
 1. Utilizar el Bloque try-catch-finally
