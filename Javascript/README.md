@@ -427,4 +427,124 @@ let intervalo = setInterval(() => {
     console.log("Esto no se verá repetidamente");
 }, 1000);
 clearInterval(intervalo); // Cancela la ejecución del setInterval
+```
+
+# Semana 8 
+**Manejo del asincronismo y errores**
+**¿Qué es el Call Stack?**
+El Call Stack (o pila de llamadas) es una estructura de datos en la que se registran las funciones que están siendo ejecutadas en un programa. Cada vez que se invoca una función, esta se apila en el Call Stack. Cuando una función termina de ejecutarse, se desapila, y el control se devuelve a la función anterior en la pila.
+**Qué es el Event Loop**
+El Event Loop es el mecanismo que permite a JavaScript manejar operaciones asincrónicas, como temporizadores y solicitudes HTTP, a pesar de ser single-threaded. Mientras que el Call Stack maneja las funciones sincrónicas, el Event Loop supervisa la cola de tareas (también llamada Callback Queue), donde se colocan las operaciones asincrónicas una vez que están listas para ser ejecutadas.
+Cómo funciona:
+- Cuando el Call Stack está vacío, el Event Loop toma la primera tarea de la Callback Queue y la coloca en el Call Stack para su ejecución.
+- Este proceso continúa, asegurando que las tareas asincrónicas se ejecuten cuando el hilo principal esté libre.
+
+```setTimeout()```
+La función setTimeout ejecuta una función después de un período de tiempo especificado, expresado en milisegundos. Este método es útil para programar una tarea que debe realizarse después de un retraso, como mostrar un mensaje emergente o realizar una actualización en la interfaz de usuario.
+```setTimeout(función, tiempoEnMilisegundos);```
 ```javascript
+console.log("Inicio");
+setTimeout(() => {
+    console.log("Esto se ejecuta después de 2 segundos");
+}, 2000);
+```
+
+```setInterval```
+La función setInterval es similar a setTimeout, pero en lugar de ejecutar una función solo una vez después de un retraso, la ejecuta repetidamente en intervalos regulares. Esto es útil para tareas que necesitan realizarse periódicamente, como actualizar un reloj en pantalla o verificar el estado de una solicitud de red.
+```setInterval(función, intervaloEnMilisegundos);```
+```javascript
+console.log("Inicio");
+setInterval(() => {
+    console.log("Esto se ejecuta cada 1 segundo");
+}, 1000);
+```
+
+
+Mejores Prácticas para el Manejo de Errores en JavaScript
+1. Utilizar el Bloque try-catch-finally
+- ```try```: Encierra el código que puede lanzar una excepción. Este bloque intenta ejecutar el código y, si se produce un error, el control pasa al bloque ```catch```.
+- ```catch```: Captura y maneja las excepciones. Aquí puedes proporcionar mensajes de error claros, realizar acciones de recuperación, o simplemente registrar el error.
+- ```finally```: Se ejecuta siempre, independientemente de si se capturó o no una excepción. Es ideal para liberar recursos o realizar tareas de limpieza.
+```javascript
+try {
+    // Código que podría generar un error
+} catch (error) {
+    console.error("Error:", error.message);
+} finally {
+    // Código que se ejecuta siempre
+}
+```
+2. Lanzar Errores Apropiadamente
+- Utiliza throw para lanzar errores personalizados cuando detectes condiciones en las que el código no pueda continuar correctamente.
+- Asegúrate de proporcionar mensajes de error informativos que ayuden a identificar y solucionar el problema.
+```javascript
+function dividir(a, b) {
+    if (b === 0) {
+        throw new Error("No se puede dividir por cero.");
+    }
+    return a / b;
+}
+```
+3. Evitar Capturar Errores Silenciosamente
+- Es tentador capturar todos los errores y no hacer nada con ellos, pero esto puede llevar a problemas más difíciles de depurar.
+- Asegúrate de registrar los errores o de manejar adecuadamente las excepciones para no perder información importante.
+Ejemplo INCORRECTO
+```Javascript
+try {
+    // Código que podría generar un error
+} catch (error) {
+    // No hacer nada, no recomendado
+}
+```
+4. Manejo de Errores Asincrónicos
+- En funciones asíncronas, usa try-catch junto con async-await para manejar errores.
+- Para promesas, utiliza catch para capturar errores que ocurran durante la ejecución de la promesa.
+```Javascript
+async function fetchData() {
+    try {
+        let response = await fetch('<https://api.example.com/data>');
+        let data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error al obtener los datos:", error);
+    }
+}
+
+// ejemplo con promesas
+fetch('<https://api.example.com/data>')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Error:", error));
+```
+5. Registrar Errores
+- Mantén un registro de los errores en un sistema de logging o en un servicio externo. Esto es esencial para el mantenimiento y la depuración de aplicaciones en producción.
+- Asegúrate de no exponer información sensible en los mensajes de error.
+```Javascript
+function logError(error) {
+    // Implemente un sistema de logging aquí
+    console.error("Logged Error:", error.message);
+}
+
+try {
+    // Código que podría fallar
+} catch (error) {
+    logError(error);
+}
+```
+6. Proveer Retroalimentación al Usuario
+- Cuando sea apropiado, informa al usuario sobre los errores, especialmente si afectan su experiencia. Proporciona mensajes claros y, si es posible, soluciones o pasos a seguir.
+```Javascript
+try {
+    // Operación que podría fallar
+} catch (error) {
+    alert("Algo salió mal. Por favor, intenta nuevamente.");
+}
+```
+7. Pruebas de Manejo de Errores
+- Escribe tests que simulen errores para asegurarte de que tu código maneja las excepciones correctamente.
+- Las pruebas unitarias deben cubrir los casos en los que se lancen errores, asegurando que el código reaccione como se espera.
+```Javascript
+test('debería lanzar un error al dividir por cero', () => {
+    expect(() => dividir(10, 0)).toThrow("No se puede dividir por cero.");
+});
+```
