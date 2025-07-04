@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulario de Contacto</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <h2>Formulario de Contacto</h2>
+  <form id="contact-form">
+    <label>Nombre:</label>
+    <input type="text" name="name" required /><br />
+
+    <label>Email:</label>
+    <input type="email" name="email" required /><br />
+
+    <label>Mensaje:</label><br />
+    <textarea name="message" required></textarea><br />
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
