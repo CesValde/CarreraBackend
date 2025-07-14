@@ -1,4 +1,4 @@
-> Cada carpeta tendra los metodos utlizados (para tener en cuenta para una mayor facilidad de busqueda entre carpetas) 
+> Herramientas Utilizadas semana a semana
 
 # Semana 1 
 **Intro - variables/tipos de datos**
@@ -349,11 +349,13 @@ El Call Stack (o pila de llamadas) es una estructura de datos en la que se regis
 
 **Qué es el Event Loop**
 El Event Loop es el mecanismo que permite a JavaScript manejar operaciones asincrónicas, como temporizadores y solicitudes HTTP, a pesar de ser single-threaded. Mientras que el Call Stack maneja las funciones sincrónicas, el Event Loop supervisa la cola de tareas (también llamada Callback Queue), donde se colocan las operaciones asincrónicas una vez que están listas para ser ejecutadas.
+
 Cómo funciona:
 - Cuando el Call Stack está vacío, el Event Loop toma la primera tarea de la Callback Queue y la coloca en el Call Stack para su ejecución.
 - Este proceso continúa, asegurando que las tareas asincrónicas se ejecuten cuando el hilo principal esté libre.
 
 ```setTimeout()```
+
 La función setTimeout ejecuta una función después de un período de tiempo especificado, expresado en milisegundos. Este método es útil para programar una tarea que debe realizarse después de un retraso, como mostrar un mensaje emergente o realizar una actualización en la interfaz de usuario.
 ```setTimeout(función, tiempoEnMilisegundos);```
 ```javascript
@@ -364,6 +366,7 @@ setTimeout(() => {
 ```
 
 ```setInterval```
+
 La función setInterval es similar a setTimeout, pero en lugar de ejecutar una función solo una vez después de un retraso, la ejecuta repetidamente en intervalos regulares. Esto es útil para tareas que necesitan realizarse periódicamente, como actualizar un reloj en pantalla o verificar el estado de una solicitud de red.
 ```setInterval(función, intervaloEnMilisegundos);```
 ```javascript
@@ -373,6 +376,7 @@ setInterval(() => {
 }, 1000);
 ```
 **Cancelación de Temporizadores**
+
 Tanto setTimeout como setInterval pueden ser cancelados si ya no es necesario ejecutar la tarea programada. Para ello, se utilizan los métodos clearTimeout y clearInterval, respectivamente.
 ```javascript
 let temporizador = setTimeout(() => {
@@ -474,3 +478,163 @@ test('debería lanzar un error al dividir por cero', () => {
     expect(() => dividir(10, 0)).toThrow("No se puede dividir por cero.");
 });
 ```
+
+# Semana 9
+**Uso avanzado de Javascript**
+Promesas en JS
+
+Una Promesa en JavaScript es un objeto que representa la eventual finalización (o fracaso) de una operación asíncrona y su valor resultante. Las Promesas son esenciales para manejar operaciones asíncronas como solicitudes a APIs o temporizadores, permitiendo que el código funcione de manera no bloqueante.
+
+Estados de una Promesa
+
+Una Promesa puede encontrarse en uno de los siguientes tres estados:
+
+- Pending (Pendiente): Es el estado inicial. La promesa está en proceso, lo que significa que aún no ha sido cumplida ni rechazada.
+- Fulfilled (Resuelta): La operación se completó con éxito, y la promesa tiene un valor resultante.
+- Rejected (Rechazada): La operación falló, y la promesa tiene una razón para el fallo, generalmente un error.
+
+Manejo de Estados con then(), catch() y finally()
+
+```then(onFulfilled)```: Este método se ejecuta cuando la promesa se resuelve con éxito. Recibe una función que será llamada con el valor resultante de la promesa.
+```Javascript
+promesa.then((resultado) => {
+      console.log("Promesa resuelta con valor:", resultado);
+  });
+```
+
+```catch(onRejected)```: Este método se ejecuta cuando la promesa es rechazada. Recibe una función que será llamada con la razón del rechazo.
+```Javascript
+promesa.catch((error) => {
+      console.error("Promesa rechazada con error:", error);
+  });
+```
+
+```finally(onFinally)```: Este método se ejecuta independientemente de si la promesa fue resuelta o rechazada. Es útil para ejecutar código de limpieza o de finalización, sin importar el resultado de la promesa.
+```Javascript
+promesa.finally(() => {
+      console.log("Promesa finalizada, sea cual sea el resultado.");
+  });
+```
+
+Imaginemos una función que simula una solicitud de datos a una API utilizando un setTimeout para simular la demora en la respuesta:
+```Javascript
+const obtenerDatos = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const exito = true; // Cambia esto para probar diferentes resultados
+            if (exito) {
+                resolve("Datos obtenidos correctamente");
+            } else {
+                reject("Error al obtener los datos");
+            }
+        }, 2000);
+    });
+};
+
+obtenerDatos()
+    .then((resultado) => {
+        console.log(resultado);
+    })
+    .catch((error) => {
+        console.error(error);
+    })
+    .finally(() => {
+        console.log("Operación completada.");
+    });
+```
+
+**Aplicaciones comunes de las librerías**
+Algunas de las áreas donde las librerías de JavaScript se utilizan con frecuencia incluyen:
+
+- Validación de datos: Asegurar que los datos ingresados por el usuario cumplan con ciertos criterios antes de ser procesados.
+- Interfaces visuales: Mejora de la presentación y la experiencia del usuario mediante elementos visuales interactivos, como sliders, modales, y alertas personalizadas.
+- Manejo de fechas: Facilitar la manipulación de fechas y horas, como formateo, comparación y cálculo de intervalos.
+- Peticiones AJAX: Simplificar la comunicación con servidores para enviar y recibir datos de manera asíncrona sin recargar la página completa. <--------------->
+
+**Ejemplos de librerías populares**
+
+- jQuery: Facilita la manipulación del DOM y maneja eventos, animaciones, y peticiones AJAX.
+- Sweet Alert: Permite la creación de alertas visualmente atractivas y personalizables que mejoran la experiencia del usuario.
+- Luxon: Ofrece herramientas para manejar fechas y horas de forma sencilla y potente.
+
+**Uso de CDN para Vincular Librerías**
+Un CDN es una red de distribución de contenido que permite acceder a archivos hospedados en servidores distribuidos globalmente. Para vincular una librería a través de un CDN, simplemente se debe incluir un script en el archivo HTML que apunte a la URL del CDN.
+```<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>```
+
+**Uso de Archivos Minificados**
+Los archivos minificados son versiones optimizadas de los archivos JavaScript, donde se han eliminado espacios, comentarios y saltos de línea para reducir el tamaño del archivo, mejorando así el tiempo de carga.
+```<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.min.js"></script>```
+
+**Vinculación de Librerías con Fetch**
+En algunos casos, es posible que quieras utilizar Fetch para descargar dinámicamente una librería y ejecutarla en tu proyecto. Esto puede ser útil si necesitas cargar librerías bajo ciertas condiciones o en respuesta a eventos específicos.
+```jsx fetch("https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.min.js") .then((response) => response.text()) .then((script) => { const scriptTag = document.createElement("script"); scriptTag.textContent = script; document.body.appendChild(scriptTag); Swal.fire("Librería cargada con éxito!"); }) .catch((error) => console.error("Error cargando la librería:", error));```
+
+**Alertas y Notificaciones**
+
+**Configuración y Personalización de Notificaciones con Toastify**
+Toastify es una librería ligera de JavaScript que permite crear notificaciones o "toasts" personalizadas y visualmente atractivas en una aplicación web. Estas notificaciones son ideales para mostrar mensajes temporales que no requieren interacción del usuario. A continuación, te explico cómo configurar y personalizar Toastify, enfocándonos en propiedades clave como gravity, position, y style.
+
+1. **Instalación de Toastify**
+
+Antes de empezar a configurar Toastify, es necesario integrarlo en tu proyecto. Puedes hacerlo de dos maneras: descargando la librería o vinculándola directamente desde un CDN.
+
+Vinculación desde un CDN:
+```<script src="<https://cdn.jsdelivr.net/npm/toastify-js>"></script>```
+Una vez vinculado, ya puedes empezar a utilizar Toastify en tu proyecto.
+
+2. **Creación de una Notificación Básica**
+
+Para crear una notificación básica, se utiliza el método ```Toastify({ options }).showToast();```. Las options son un objeto que define las propiedades de la notificación.
+
+Ejemplo básico:
+```Javascript
+Toastify({
+  text: "¡Esta es una notificación básica!",
+}).showToast();
+```
+
+3. **Propiedad ```gravity```**
+
+La propiedad ```gravity``` define la verticalidad de la notificación, es decir, si aparecerá en la parte superior o inferior de la pantalla.
+
+- ```gravity: "top"```: Coloca la notificación en la parte superior (valor por defecto).
+- ```gravity: "bottom"```: Coloca la notificación en la parte inferior.
+```Javascript
+Toastify({
+  text: "Notificación en la parte inferior",
+  gravity: "bottom", // Aparece en la parte inferior
+}).showToast();
+```
+
+4. **Propiedad ```position```**
+La propiedad ```position``` se utiliza para definir la horizontalidad de la notificación dentro de la pantalla, especificando si aparecerá a la izquierda, centro o derecha.
+- ```position: "left":``` Alinea la notificación a la izquierda.
+- ```position: "center":``` Centra la notificación horizontalmente.
+- ```position: "right":``` Alinea la notificación a la derecha (valor por defecto).
+
+Ejemplo:
+```Javascript
+Toastify({
+  text: "Notificación centrada",
+  gravity: "top", // Aparece en la parte superior
+  position: "center", // Centra la notificación horizontalmente
+}).showToast();
+```
+
+5. **Propiedad ```style```**
+La propiedad ```style``` permite aplicar estilos CSS personalizados a la notificación, como colores de fondo, fuente, bordes, etc.
+
+Ejemplo:
+```Javascript
+Toastify({
+  text: "Notificación personalizada",
+  gravity: "top",
+  position: "right",
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+    color: "white",
+    fontWeight: "bold",
+  }
+}).showToast();
+```
+En este ejemplo, se aplica un degradado como fondo, se establece el color del texto en blanco y se hace el texto en negrita.
