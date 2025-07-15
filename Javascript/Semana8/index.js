@@ -26,14 +26,6 @@ form.addEventListener('submit', function(e) {
     });
 });
 
-
-/* agregar el email a un div je */
-
-
-
-
-
-
 // recibe emails la persona del formulario
 /* form.addEventListener('submit', function(e) {
     e.preventDefault();
