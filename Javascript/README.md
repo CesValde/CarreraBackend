@@ -345,9 +345,12 @@ Enlaces y rutas:
 **Manejo del asincronismo y errores**
 
 **¿Qué es el Call Stack?**
+
 El Call Stack (o pila de llamadas) es una estructura de datos en la que se registran las funciones que están siendo ejecutadas en un programa. Cada vez que se invoca una función, esta se apila en el Call Stack. Cuando una función termina de ejecutarse, se desapila, y el control se devuelve a la función anterior en la pila.
 
 **Qué es el Event Loop**
+
+
 El Event Loop es el mecanismo que permite a JavaScript manejar operaciones asincrónicas, como temporizadores y solicitudes HTTP, a pesar de ser single-threaded. Mientras que el Call Stack maneja las funciones sincrónicas, el Event Loop supervisa la cola de tareas (también llamada Callback Queue), donde se colocan las operaciones asincrónicas una vez que están listas para ser ejecutadas.
 
 Cómo funciona:
@@ -357,6 +360,7 @@ Cómo funciona:
 ```setTimeout()```
 
 La función setTimeout ejecuta una función después de un período de tiempo especificado, expresado en milisegundos. Este método es útil para programar una tarea que debe realizarse después de un retraso, como mostrar un mensaje emergente o realizar una actualización en la interfaz de usuario.
+
 ```setTimeout(función, tiempoEnMilisegundos);```
 ```javascript
 console.log("Inicio");
@@ -368,6 +372,7 @@ setTimeout(() => {
 ```setInterval```
 
 La función setInterval es similar a setTimeout, pero en lugar de ejecutar una función solo una vez después de un retraso, la ejecuta repetidamente en intervalos regulares. Esto es útil para tareas que necesitan realizarse periódicamente, como actualizar un reloj en pantalla o verificar el estado de una solicitud de red.
+
 ```setInterval(función, intervaloEnMilisegundos);```
 ```javascript
 console.log("Inicio");
@@ -418,6 +423,7 @@ function dividir(a, b) {
 3. Evitar Capturar Errores Silenciosamente
 - Es tentador capturar todos los errores y no hacer nada con ellos, pero esto puede llevar a problemas más difíciles de depurar.
 - Asegúrate de registrar los errores o de manejar adecuadamente las excepciones para no perder información importante.
+
 Ejemplo INCORRECTO
 ```Javascript
 try {
@@ -481,7 +487,8 @@ test('debería lanzar un error al dividir por cero', () => {
 
 # Semana 9
 **Uso avanzado de Javascript**
-Promesas en JS
+
+**Promesas en JS**
 
 Una Promesa en JavaScript es un objeto que representa la eventual finalización (o fracaso) de una operación asíncrona y su valor resultante. Las Promesas son esenciales para manejar operaciones asíncronas como solicitudes a APIs o temporizadores, permitiendo que el código funcione de manera no bloqueante.
 
@@ -544,12 +551,13 @@ obtenerDatos()
 ```
 
 **Aplicaciones comunes de las librerías**
+
 Algunas de las áreas donde las librerías de JavaScript se utilizan con frecuencia incluyen:
 
 - Validación de datos: Asegurar que los datos ingresados por el usuario cumplan con ciertos criterios antes de ser procesados.
 - Interfaces visuales: Mejora de la presentación y la experiencia del usuario mediante elementos visuales interactivos, como sliders, modales, y alertas personalizadas.
 - Manejo de fechas: Facilitar la manipulación de fechas y horas, como formateo, comparación y cálculo de intervalos.
-- Peticiones AJAX: Simplificar la comunicación con servidores para enviar y recibir datos de manera asíncrona sin recargar la página completa. <--------------->
+- Peticiones AJAX: Simplificar la comunicación con servidores para enviar y recibir datos de manera asíncrona sin recargar la página completa. 
 
 **Ejemplos de librerías populares**
 
@@ -558,20 +566,24 @@ Algunas de las áreas donde las librerías de JavaScript se utilizan con frecuen
 - Luxon: Ofrece herramientas para manejar fechas y horas de forma sencilla y potente.
 
 **Uso de CDN para Vincular Librerías**
+
 Un CDN es una red de distribución de contenido que permite acceder a archivos hospedados en servidores distribuidos globalmente. Para vincular una librería a través de un CDN, simplemente se debe incluir un script en el archivo HTML que apunte a la URL del CDN.
 ```<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>```
 
 **Uso de Archivos Minificados**
+
 Los archivos minificados son versiones optimizadas de los archivos JavaScript, donde se han eliminado espacios, comentarios y saltos de línea para reducir el tamaño del archivo, mejorando así el tiempo de carga.
 ```<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.min.js"></script>```
 
 **Vinculación de Librerías con Fetch**
+
 En algunos casos, es posible que quieras utilizar Fetch para descargar dinámicamente una librería y ejecutarla en tu proyecto. Esto puede ser útil si necesitas cargar librerías bajo ciertas condiciones o en respuesta a eventos específicos.
 ```jsx fetch("https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.min.js") .then((response) => response.text()) .then((script) => { const scriptTag = document.createElement("script"); scriptTag.textContent = script; document.body.appendChild(scriptTag); Swal.fire("Librería cargada con éxito!"); }) .catch((error) => console.error("Error cargando la librería:", error));```
 
 **Alertas y Notificaciones**
 
 **Configuración y Personalización de Notificaciones con Toastify**
+
 Toastify es una librería ligera de JavaScript que permite crear notificaciones o "toasts" personalizadas y visualmente atractivas en una aplicación web. Estas notificaciones son ideales para mostrar mensajes temporales que no requieren interacción del usuario. A continuación, te explico cómo configurar y personalizar Toastify, enfocándonos en propiedades clave como gravity, position, y style.
 
 1. **Instalación de Toastify**
@@ -710,9 +722,11 @@ El MVVM facilita el desarrollo de aplicaciones dinámicas donde la Vista necesit
 
 # Semana 11
 **Introducción a Cursor: Instalación y Configuración**
+
 Cursor es una herramienta basada en Visual Studio Code (VSC), lo que permite a los desarrolladores familiarizados con este entorno migrar fácilmente sin grandes cambios en su flujo de trabajo. Además de las funcionalidades estándar de VSC, Cursor incorpora capacidades avanzadas de IA para mejorar la experiencia del desarrollador.
 
 **Paso a paso para instalar Cursor**
+
 Instalar Cursor es simple y directo. A continuación, se detalla el proceso:
 
 1. **Descargar Cursor:**
@@ -728,12 +742,13 @@ Instalar Cursor es simple y directo. A continuación, se detalla el proceso:
 
 4. **Configuración inicial:**
 - Tras la instalación, puedes conectar Cursor con tus repositorios de GitHub o cualquier servicio de control de versiones que uses.
-- También puedes iniciar sesión o crear una cuenta en Cursor para aprovechar las funcionalidades adicionales de la IA. <---------------> ### Plan Free y sus características
+- También puedes iniciar sesión o crear una cuenta en Cursor para aprovechar las funcionalidades adicionales de la IA. Plan Free y sus características
 
 El plan gratuito de Cursor ofrece muchas funcionalidades útiles para comenzar a trabajar con el editor:
 
-- **Funciones incluidas en el plan free:**
-**Autocompletado básico:** Basado en IA para sugerencias de una línea de código.
+**Funciones incluidas en el plan free:**
+
+- **Autocompletado básico:** Basado en IA para sugerencias de una línea de código.
 
 - **Chat básico:** El chat con IA para resolver dudas y sugerir mejoras en el código está disponible en su versión gratuita.
 - **Uso limitado de la terminal con IA:** Permite algunos comandos optimizados por IA sin la necesidad de recordar la sintaxis exacta.
@@ -746,7 +761,7 @@ El plan gratuito de Cursor ofrece muchas funcionalidades útiles para comenzar a
 Cursor no es solo un editor de código estándar, sino una herramienta que utiliza inteligencia artificial para mejorar la experiencia de desarrollo de una manera significativa. Sus funcionalidades principales están diseñadas para que los desarrolladores trabajen más rápido y de forma más eficiente, aprovechando las ventajas de la automatización y la inteligencia contextual. A continuación, se describen las funcionalidades clave de Cursor, junto con ejemplos de código y casos de uso.
 
 1. **Autocompletado Avanzado y Predicción de Código**
-El autocompletado de Cursor es más inteligente que el de otros editores tradicionales. En lugar de limitarse a sugerir autocompletados de palabras clave o basados en los últimos caracteres escritos, la IA de Cursor analiza el contexto completo del archivo y del proyecto. Esto le permite predecir no solo líneas individuales, sino bloques de código completos, haciendo que la escritura de funciones, métodos o estructuras complejas sea mucho más rápida y precisa. <--------------->
+El autocompletado de Cursor es más inteligente que el de otros editores tradicionales. En lugar de limitarse a sugerir autocompletados de palabras clave o basados en los últimos caracteres escritos, la IA de Cursor analiza el contexto completo del archivo y del proyecto. Esto le permite predecir no solo líneas individuales, sino bloques de código completos, haciendo que la escritura de funciones, métodos o estructuras complejas sea mucho más rápida y precisa.
 
 **Características:**
 - **Análisis contextual:** El autocompletado se basa en el análisis del código global del proyecto, incluyendo dependencias, funciones y archivos relacionados.
@@ -756,7 +771,7 @@ El autocompletado de Cursor es más inteligente que el de otros editores tradici
 ```Javascript
 // Crear una función para buscar un usuario en una base de datos por ID
 function buscarUsuario(id) {
-return usuarios.find(usuario => [usuario.id](http://usuario.id/) === id);
+    return usuarios.find(usuario => [usuario.id](http://usuario.id/) === id);
 }
 ```
 
@@ -768,9 +783,10 @@ En este ejemplo, solo necesitarías escribir el comentario y la primera línea, 
 - **Integración con librerías:** Cursor puede sugerir automáticamente métodos y funciones de librerías externas que has importado, evitando que tengas que consultar la documentación constantemente.
 
 2. **Corrección Inteligente de Código (Smart Rewrites)**
+
 Una de las funcionalidades más poderosas de Cursor es la corrección inteligente de código o Smart Rewrites. La IA de Cursor no solo revisa el código en busca de errores de sintaxis o convenciones, sino que también sugiere mejoras y optimizaciones basadas en las mejores prácticas de desarrollo. Si el código que estás escribiendo tiene una solución más eficiente o limpia, Cursor te lo indicará y te propondrá cambios.
 
-**aracterísticas:**
+**Características:**
 - **Detección de errores en tiempo real:** Cursor corrige automáticamente errores comunes de sintaxis, como el uso incorrecto de operadores, variables no definidas o estructuras condicionales mal formadas.
 
 - **Optimización de código:** Sugerencias para refactorizar código y hacerlo más limpio y eficiente.
@@ -778,21 +794,22 @@ Una de las funcionalidades más poderosas de Cursor es la corrección inteligent
 - **Mejora continua:** Mientras trabajas, Cursor sigue aprendiendo de tu estilo de codificación y ajusta sus sugerencias en función de tus preferencias y del contexto del proyecto.
 
 Ejemplo de Código:
+
 Supongamos que escribes una función para sumar los elementos de un array, pero la función no está optimizada.
 ```Javascript
 // Función para sumar los elementos de un array
 function sumaElementos(arr) {
-let total = 0;
-for (let i = 0; i < arr.length; i++) {
-total += arr[i];
-}
-return total;
+    let total = 0;
+    for(let i = 0; i < arr.length; i++) {
+        total += arr[i];
+    }
+    return total;
 }
 ```
 Cursor podría sugerir una forma más concisa de escribir esta función utilizando el método reduce():
 ```Javascript
 function sumaElementos(arr) {
-return arr.reduce((total, num) => total + num, 0);
+    return arr.reduce((total, num) => total + num, 0);
 }
 ```
 Esta refactorización reduce el código y lo hace más eficiente, una mejora que Cursor podría proponer automáticamente.
@@ -821,13 +838,13 @@ Supongamos que tienes una función en JavaScript que parece demasiado lenta o in
 ```Javascript
 // Función para calcular la suma de todos los números pares de un array
 function sumaPares(arr) {
-let total = 0;
-for (let i = 0; i < arr.length; i++) {
-if (arr[i] % 2 === 0) {
-total += arr[i];
-}
-}
-return total;
+    let total = 0;
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] % 2 === 0) {
+            total += arr[i];
+        }
+    }
+    return total;
 }
 ```
 
@@ -836,7 +853,7 @@ En este punto, puedes abrir el chat contextual y preguntar:
 "¿Cómo puedo optimizar esta función para que sea más eficiente?"
 
 La IA de Cursor puede sugerir lo siguiente:
-```
+```Javascript
 function sumaPares(arr) {
 return arr.filter(num => num % 2 === 0).reduce((total, num) => total + num, 0);
 }
