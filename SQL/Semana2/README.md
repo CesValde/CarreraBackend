@@ -54,6 +54,8 @@ FROM empleados
 WHERE departamento = 'Ventas';
 ```
 
+👉 Selecciona nombres y apellidos de empleados del departamento de Ventas.
+
 2. Inserción de Datos
 
 ```SQL
@@ -77,8 +79,6 @@ WHERE fecha < '2021-01-01';
 ```
 
 ---
-
-👉 Selecciona nombres y apellidos de empleados del departamento de Ventas.
 
 ⚖️ Principales Operadores de Comparación
 

@@ -192,7 +192,9 @@ Esto implica comprender qué tipo de datos se almacenarán, cómo se utilizarán
 **Paso 2: Identificación de Entidades y Atributos**
 
 Una entidad = objeto o concepto real.
+
 Cada entidad se convierte en una tabla.
+
 Los atributos = columnas de esas tablas.
 
 Ejemplo en ventas:
@@ -214,7 +216,9 @@ Diseño gráfico que muestra cómo se relacionan las entidades (1:1, 1:N, N:M).
 **Paso 4: Definición de Claves Primarias y Foráneas**
 
 Cada tabla debe tener una PK.
+
 Las FK permiten mantener la integridad referencial.
+
 También se definen las UK detectadas en el modelo.
 
 ---
@@ -222,6 +226,7 @@ También se definen las UK detectadas en el modelo.
 **Paso 5: Normalización de la Base de Datos**
 
 Proceso de estructurar para minimizar redundancia.
+
 Aplicando 1NF, 2NF, 3NF, etc.
 
 Ejemplo: separar "Pedidos" en "Clientes" y "Productos".
@@ -340,9 +345,13 @@ Ejemplo: Obtener los 5 productos más caros.
 SELECT NombreProducto, Precio FROM Productos ORDER BY Precio DESC LIMIT 5;
 ```
 
----
+Ejemplo: Obtener los 5 productos más caros, pero partiendo desde el registro 
 
-Ejemplo: Obtener los 5 productos más caros, pero partiendo desde el registro 6. `SELECT NombreProducto, Precio FROM Productos ORDER BY Precio DESC LIMIT 5 OFFSET 5;`
+```SQL 
+SELECT NombreProducto, Precio FROM Productos ORDER BY Precio DESC LIMIT 5 OFFSET 5;
+```
+
+---
 
 6. **Consultas con Funciones de Ventana**
 
