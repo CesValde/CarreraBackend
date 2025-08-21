@@ -177,15 +177,17 @@ PRIMARY KEY (id_estudiante, id_curso)
 ```
 
 Esto significa que la combinación de id_estudiante + id_curso es única.
-Ejemplo:
-❌ No podés tener dos veces `(1, 101)`.
+
+Ejemplo: ❌ No podés tener dos veces `(1, 101)`.
 
 🛠️ **Instrucciones para la Creación de una Base de Datos Relacional Básica**
 
-**Paso1: Definición del Propósito de la Base de Datos**
+**Paso 1: Definición del Propósito de la Base de Datos**
 
 Antes de comenzar a diseñar la base de datos, es fundamental definir claramente el propósito que servirá.
 Esto implica comprender qué tipo de datos se almacenarán, cómo se utilizarán y quiénes serán los usuarios principales de la base de datos.
+
+---
 
 **Paso 2: Identificación de Entidades y Atributos**
 
@@ -201,15 +203,21 @@ Atributos: Nombre, Precio, Fecha de Pedido.
 
 En esta fase también se identifican claves candidatas y claves únicas.
 
+---
+
 **Paso 3: Creación del Modelo Entidad-Relación**
 
 Diseño gráfico que muestra cómo se relacionan las entidades (1:1, 1:N, N:M).
+
+---
 
 **Paso 4: Definición de Claves Primarias y Foráneas**
 
 Cada tabla debe tener una PK.
 Las FK permiten mantener la integridad referencial.
 También se definen las UK detectadas en el modelo.
+
+---
 
 **Paso 5: Normalización de la Base de Datos**
 
@@ -218,9 +226,13 @@ Aplicando 1NF, 2NF, 3NF, etc.
 
 Ejemplo: separar "Pedidos" en "Clientes" y "Productos".
 
+---
+
 **Paso 6: Implementación en un SGBD**
 
 Creación física de tablas, relaciones y restricciones en MySQL, PostgreSQL, SQL Server, etc.
+
+---
 
 **Paso 7: Inserción de Datos y Pruebas**
 
@@ -238,6 +250,8 @@ El Lenguaje de Consulta Estructurado (SQL) permite interactuar con el SGBD para:
 
 - TCL: gestión de transacciones.
 
+---
+
 1. **Selección de Datos con Condiciones Avanzadas**
 
 Una de las funcionalidades más básicas pero esenciales de SQL es la capacidad de seleccionar datos utilizando condiciones avanzadas para filtrar los resultados. Esto se logra con la cláusula ```WHERE```, que puede incorporar operadores lógicos y de comparación.
@@ -251,6 +265,8 @@ Ejemplo: Recuperar todos los clientes mayores de 30 años que viven en una ciuda
 ```SQL 
 SELECT * FROM Clientes WHERE Edad > 30 AND Ciudad = 'Madrid' ;
 ```
+
+---
 
 2. **Uso de Funciones Agregadas**
 
@@ -271,6 +287,8 @@ SELECT SUM(TotalVentas) AS Total, AVG(TotalVentas) AS Promedio FROM Ventas
 `WHERE ClienteID = 23;
 ```
 
+---
+
 3. **Agrupación de Datos**
 
 La cláusula `GROUP BY` se utiliza para agrupar filas que tienen los mismos valores en columnas especificadas en grupos resumidos, a menudo en combinación con funciones agregadas que van a actuar sobre el grupo que se haya definido. Esto es útil para crear informes que requieren resúmenes de datos.
@@ -280,6 +298,8 @@ Ejemplo: Mostrar la cantidad de productos vendidos por categoría.
 ```SQL
 SELECT Categoria, COUNT(*) AS NumeroDeProductos FROM Productos GROUP BY Categoria;
 ```
+
+---
 
 4. **Consultas de Unión y Subconsultas**
 
@@ -305,6 +325,8 @@ Ejemplo: Listar productos cuyo precio está por encima del promedio.
 SELECT NombreProducto FROM Productos WHERE Precio > (SELECT AVG(Precio) FROM Productos);
 ```
 
+---
+
 5. **Ordenación y Limitación de Resultados**
 
 Para mejorar la presentación de datos, SQL permite ordenar y limitar los resultados.
@@ -317,6 +339,8 @@ Ejemplo: Obtener los 5 productos más caros.
 ```SQL 
 SELECT NombreProducto, Precio FROM Productos ORDER BY Precio DESC LIMIT 5;
 ```
+
+---
 
 Ejemplo: Obtener los 5 productos más caros, pero partiendo desde el registro 6. `SELECT NombreProducto, Precio FROM Productos ORDER BY Precio DESC LIMIT 5 OFFSET 5;`
 
@@ -331,6 +355,8 @@ Ejemplo: Calcular el salario acumulado para cada empleado, ordenado por fecha de
 ```SQL
 SELECT EmpleadoID, FechaContratacion, SUM(Salario) OVER (ORDER BY FechaContratacion) AS SalarioAcumulado FROM Empleados;
 ``` 
+
+---
 
 7. **Optimización de Consultas**
 
