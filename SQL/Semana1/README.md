@@ -69,11 +69,15 @@ Ejemplo: Persona y DNI
 - Cada persona tiene un solo DNI.
 - Cada DNI pertenece a una sola persona
 
-Personas                DNI
----------               ---------
-id_persona (PK)         id_dni (PK)
-nombre                  numero_dni
-apellido                id_persona (FK)
+Personas                          
+id_persona (PK)         
+nombre                  
+apellido                
+
+DNI 
+id_dni (PK)
+numero_dni
+id_persona (FK)
 
 2. Uno a Muchos (1:n): Una fila en una tabla se puede relacionar con muchas filas en otra tabla. Por ejemplo, un departamento puede tener muchos empleados.
 
@@ -82,11 +86,14 @@ Ejemplo: Autor y Libros
 - n autor puede escribir muchos libros.
 - Cada libro tiene un solo autor.
 
-Autores                 Libros
---------               ---------
-id_autor (PK)           id_libro (PK)
-nombre                  titulo
-                        id_autor (FK) 
+Autores                
+id_autor (PK)           
+nombre
+
+Libros
+id_libro (PK)
+titulo
+id_autor (FK) 
 
 3. Muchos a Muchos (n:m): Muchas filas en una tabla pueden relacionarse con muchas filas en otra tabla, generalmente implementado mediante una tabla intermedia. Por ejemplo, estudiantes y cursos donde un estudiante puede inscribirse en múltiples cursos y un curso puede tener múltiples estudiantes.
 
@@ -95,11 +102,18 @@ Ejemplo: Estudiantes y Cursos
 - Un estudiante puede inscribirse en muchos cursos.
 - Un curso puede tener muchos estudiantes.
 
-Estudiantes             Cursos                 Estudiante_Curso
-------------            -----------            -------------------
-id_estudiante (PK)      id_curso (PK)          id_estudiante (FK)
-nombre                  nombre                 id_curso (FK)
-                                               (PK compuesta)
+Estudiantes                              
+id_estudiante (PK)                
+nombre                                   
+
+Cursos
+id_curso (PK)
+nombre
+
+Estudiante_Curso
+id_curso (FK)
+id_estudiante (FK)
+(PK compuesta)
 
 Nota: Se necesita una tabla intermedia (Estudiante_Curso) para establecer la relación.
 
