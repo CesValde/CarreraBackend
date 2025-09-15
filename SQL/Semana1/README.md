@@ -180,6 +180,8 @@ Esto significa que la combinación de id_estudiante + id_curso es única.
 
 Ejemplo: ❌ No podés tener dos veces `(1, 101)`.
 
+--- 
+
 🛠️ **Instrucciones para la Creación de una Base de Datos Relacional Básica**
 
 **Paso 1: Definición del Propósito de la Base de Datos**
