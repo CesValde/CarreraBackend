@@ -115,23 +115,19 @@ SELECT f_contar_personas(1) AS Personas_en_Pais;
 
 ## 📊 Diferencias entre Funciones y Stored Procedures
 
-Característica	Funciones	Stored Procedures
+## Funciones
+- 🔹 Retornan **siempre un solo valor**.  
+- 🔹 Se pueden usar directamente en **consultas (SELECT, WHERE, etc.)**.  
+- 🔹 Solo aceptan **parámetros de entrada**.  
+- 🔹 La modificación de datos (**INSERT, UPDATE, DELETE**) está **limitada**.  
+- 🔹 Ofrecen **alta modularidad**.  
 
-```
-Retorno	Siempre un valor	Puede retornar varios valores
-Uso en consultas	✅ Sí	❌ No
-Parámetros	Entrada	Entrada y Salida
-Modificación de datos (INSERT, UPDATE, DELETE)	Limitado	✅ Sí
-Modularidad	Alta	Alta
-
-| Característica | Funciones | Stored Procedures |
-|----------------|-----------|-------------------|
-| Retorno | Siempre un valor | Puede retornar varios valores |
-| Uso en consultas | ✅ Sí | ❌ No |
-| Parámetros | Entrada | Entrada y Salida |
-| Modificación de datos (INSERT, UPDATE, DELETE) | Limitado | ✅ Sí |
-| Modularidad | Alta | Alta |
-```
+## Stored Procedures
+- 🔸 Pueden **retornar varios valores**.  
+- 🔸 **No** se pueden usar directamente en consultas.  
+- 🔸 Aceptan **parámetros de entrada y salida**.  
+- 🔸 Permiten modificaciones de datos (**INSERT, UPDATE, DELETE**).  
+- 🔸 También ofrecen **alta modularidad**.  
 
 --- 
 
@@ -329,18 +325,29 @@ Los Stored Procedures:
 
 Son esenciales para automatizar procesos complejos y asegurar consistencia en las operaciones.
 
-```
-📊 Diferencia entre Funciones y Stored Procedures en SQL
-🔹 Característica	🛠️ Funciones	⚙️ Stored Procedures
-📤 Retorno	Siempre devuelven un valor (con RETURN)	Pueden retornar cero, uno o varios valores (mediante parámetros OUT o INOUT)
-📑 Uso en consultas	✅ Se pueden usar en SELECT, WHERE, etc.	❌ No se pueden usar directamente en consultas
-🎛️ Parámetros	Solo de entrada (IN)	Soportan IN, OUT e INOUT
-✍️ Modificación de datos (INSERT, UPDATE, DELETE)	❌ Limitadas (no están pensadas para modificar datos)	✅ Sí, permiten modificar datos directamente
-🧩 Modularidad	Alta (reutilizables dentro de queries)	Alta (reutilizables para procesos completos)
-⚡ Rendimiento	Ejecutan cálculos rápidos dentro de queries	Ejecutan procesos más complejos y pesados
-🔒 Seguridad	Se enfocan en cálculos y retornos	Encapsulan lógica de negocio y mejoran seguridad
-🔁 Transacciones	❌ No pueden manejar transacciones	✅ Sí, soportan transacciones (COMMIT, ROLLBACK)
-```
+# 📊 Diferencia entre Funciones y Stored Procedures en SQL
+
+## 🛠️ Funciones
+- 📤 **Retorno:** Siempre devuelven un valor (`RETURN`).
+- 📑 **Uso en consultas:** ✅ Se pueden usar en `SELECT`, `WHERE`, etc.
+- 🎛️ **Parámetros:** Solo aceptan `IN`.
+- ✍️ **Modificación de datos:** ❌ Limitadas, no están pensadas para `INSERT`, `UPDATE`, `DELETE`.
+- 🧩 **Modularidad:** Alta, reutilizables dentro de queries.
+- ⚡ **Rendimiento:** Ejecutan cálculos rápidos dentro de consultas.
+- 🔒 **Seguridad:** Orientadas a cálculos y retornos.
+- 🔁 **Transacciones:** ❌ No manejan transacciones.
+
+---
+
+## ⚙️ Stored Procedures
+- 📤 **Retorno:** Pueden retornar cero, uno o varios valores (mediante parámetros `OUT` o `INOUT`).
+- 📑 **Uso en consultas:** ❌ No se pueden usar directamente en consultas.
+- 🎛️ **Parámetros:** Soportan `IN`, `OUT` e `INOUT`.
+- ✍️ **Modificación de datos:** ✅ Permiten `INSERT`, `UPDATE`, `DELETE`.
+- 🧩 **Modularidad:** Alta, reutilizables para procesos completos.
+- ⚡ **Rendimiento:** Ejecutan procesos más complejos y pesados.
+- 🔒 **Seguridad:** Encapsulan lógica de negocio y mejoran seguridad.
+- 🔁 **Transacciones:** ✅ Soportan `COMMIT` y `ROLLBACK`.
 
 --- 
 
