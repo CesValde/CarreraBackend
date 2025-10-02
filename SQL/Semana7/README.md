@@ -8,7 +8,6 @@ MySQL Workbench proporciona herramientas poderosas para importar datos desde div
 ---
 
 ## 🛠️ Usando el Asistente de Importación en MySQL Workbench  
-
 El **asistente de importación** permite cargar datos fácilmente sin necesidad de comandos SQL complejos.  
 
 ---
