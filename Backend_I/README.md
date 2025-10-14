@@ -16,3 +16,12 @@
 - ¿Cómo sería la aplicación Práctica?
 
 # Semana 3
+
+[**Desarrollo avanzado de Backend con Node Js**](./Semana3/)
+
+- Introducción a Node.js y NPM
+- Módulos Nativos y de Terceros en Node.js
+- Manejo de Archivos en Node.js 
+- Gestión de Dependencias y Versionado
+- IA para Gestión de Dependencias y Versionado con Dependabot
+
