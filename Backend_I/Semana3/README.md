@@ -78,7 +78,6 @@ Se genera un archivo llamado `package.json`, que contiene:
 - Scripts personalizados.
 
 ```json
-Ejemplo:
 {
   "name": "mi-proyecto",
   "version": "1.0.0",
