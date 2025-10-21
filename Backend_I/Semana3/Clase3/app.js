@@ -25,12 +25,23 @@
 import bcrypt from 'bcrypt';
 // file system
 import fs from 'fs'
+import { use } from 'react';
 
 // encripta la contraseña
 function createHash(password) {
     const hashingString = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
     console.log(password, '-->', hashingString)
     return hashingString
+}
+
+// verifica que el texto plano sea igual a la contraseña encriptada
+function isValidPassword(password, usernamePassowrd){
+    return bcrypt.compareSync(password, usernamePassowrd)
+}
+
+// buscar un usuario dentro de la bbdd
+function buscarUsuario(bbdd, username) {
+    return bbdd.find(usuario => usuario.username === username)
 }
 
 class UsersManager {
@@ -41,7 +52,6 @@ class UsersManager {
         // verifica si existe el archivo
         if(fs.existsSync('./bbdd.json')) {
             // convierto a objeto JS
-            console.log('Hola')
             return this.bbdd = JSON.parse(fs.readFileSync('./bbdd.json'))
         } else {
             this.bbdd = { data: [] }
@@ -61,23 +71,27 @@ class UsersManager {
         fs.writeFileSync('./bbdd.json', JSON.stringify(this.bbdd))
     }
 
-    // modifica un usuario
+    // modifica la contraseña de un usuario
     static modificarUsuario({username, newPassword}){
-        // logica para modificar la contraseña
+        const userFinded = buscarUsuario(this.bbdd, username)
+        if(!userFinded) return console.log("El usuario no existe")
 
-        // fs.writeFileSync('./bbdd.json', JSON.stringify(this.bbdd))
+        userFinded.password = newPassword
+        fs.writeFileSync('./bbdd.json', JSON.stringify(this.bbdd))
     }
 
     // elimina un usuario
     static eliminarUsuario (username){
-         // logica para eliminar
+        const userFinded = buscarUsuario(this.bbdd, username)
+        if(!userFinded) return console.log("El usuario no existe")
 
-        // fs.writeFileSync('./bbdd.json', JSON.stringify(this.bbdd))
+        this.bbdd = this.bbdd.filter(usuarioFinded => usuarioFinded.username !== username)
+        fs.writeFileSync('./bbdd.json', JSON.stringify(this.bbdd))
     }
 
     // valida un usuario 
     static validarUsuario(username, password) {
-        const userFinded = this.bbdd.find(usuario => usuario.username == username)
+        const userFinded = buscarUsuario(this.bbdd, username)
         if(!userFinded) return console.log("El usuario no existe")
         
         const isValid = isValidPassword(password, userFinded.password)
