@@ -25,3 +25,11 @@
 - Gestión de Dependencias y Versionado
 - IA para Gestión de Dependencias y Versionado con Dependabot
 
+# Semana 4 
+
+[**Desarrollo de backend avanzando**](./Semana4/)
+
+- Introducción a Servidores Web
+- Código de Estado y Métodos de Petición
+- Introducción a las APIs REST
+- Herramientas y Buenas Prácticas
