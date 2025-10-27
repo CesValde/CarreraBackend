@@ -1,5 +1,6 @@
 // 🧱 Servidor básico con Node.js
-const http = require('http')
+
+import { http } from "http"
 
 const server = http.createServer((req, res) => {
   if (req.url === '/' && req.method === 'GET') {
