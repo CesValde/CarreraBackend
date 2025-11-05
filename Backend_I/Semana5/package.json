@@ -1,0 +1,21 @@
+{
+  "name": "semana6",
+  "version": "1.0.0",
+  "description": "WebSockets es un protocolo de comunicación que permite establecer una conexión bidireccional y persistente entre el cliente y el servidor sobre una única conexión TCP. A diferencia del protocolo HTTP, que sigue un modelo de solicitud-respuesta, WebSockets permite que ambos extremos (cliente y servidor) puedan enviar y recibir datos en cualquier momento, sin necesidad de hacer solicitudes adicionales.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "handlebars": "^4.7.8",
+    "multer": "^2.0.2",
+    "nodemon": "^3.1.10",
+    "socket.io": "^4.8.1"
+  }
+}
