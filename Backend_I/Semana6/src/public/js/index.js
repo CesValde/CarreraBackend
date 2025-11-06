@@ -1,10 +1,11 @@
 /* console.log("esto deberia de verse en consola - pantalla socket") */
 
-const socket = io(); // establece la conexion del cliente hacia el server 
+const socket = io();    // establece la conexion del cliente hacia el server 
 const box = document.querySelector('#box')          // input
 const app = document.querySelector('#app-chat')     // div con los <p> mensajes <p>
 const teclaEnter = 'Enter'
-/* const userStatus = document.querySelector() */
+const bienvenida = document.querySelector('h1')
+const listaUsuarios = document.getElementById('lista-usuarios')
 
 let user = '';
 
@@ -22,7 +23,7 @@ Swal.fire({
     } 
 }).then(nick => {
     user = nick.value
-    alert(`Bienvenido ${user}`)
+    bienvenida.textContent = `Bienvenido ${user}! ${bienvenida.textContent}`
     socket.emit('registrar_usuario', user)
     app.style.display = 'block'
 })
@@ -48,7 +49,25 @@ socket.on('lista_de_mensaje_actualizada', (data) => {
         const p = document.createElement('p')
         p.innerText = `${chat.user}: ${chat.mensaje}` 
         app.appendChild(p)
-
     })
 })
 
+// Mostrar los usuarios conectados y desconectados
+socket.on('estado_del_usuario', (usuarios) => {
+    listaUsuarios.innerHTML = ''
+
+    // itero cada objeto (usuarios)
+    for(const id in usuarios) {
+        const p = document.createElement('p')
+        p.dataset.id = id
+        p.innerText = `${usuarios[id]}`
+        p.style.color = 'green'
+        listaUsuarios.appendChild(p)
+    }
+})
+
+// modificamos el color del usuario desconectado
+socket.on('usuario_desconectado', (idDesconectado) => {
+    const p = document.querySelector(`p[data-id="${idDesconectado}"]`)
+    p.style.color = 'red'
+})
