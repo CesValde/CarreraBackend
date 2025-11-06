@@ -43,7 +43,7 @@ const usuarios = {}
 serverSocket.on('connection', (socket) => {
    // recibimos el nombre del usuario al conectarse
    socket.on('registrar_usuario', (user) => {
-      usuarios[socket.id] = user
+      usuarios[socket.id] = { nombre: user, conectado: true }
       console.log(`${user} se conectó con id ${socket.id}`)
 
       // emitimos la lista de mensajes actualizada al socket que ingresa
@@ -64,7 +64,8 @@ serverSocket.on('connection', (socket) => {
    // detecta cuando el socket se desconecta, reason lo maneja io por si solo (no le doy valor)
    socket.on('disconnect', (reason) => {
       console.log(`${socket.id} se desconecto ${reason}`)
-
+      
+      usuarios[socket.id].conectado = false
       // emitimos que id que se desconecto
       serverSocket.emit('usuario_desconectado', socket.id)
    })

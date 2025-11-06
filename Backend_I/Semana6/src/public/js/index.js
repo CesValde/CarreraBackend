@@ -52,16 +52,17 @@ socket.on('lista_de_mensaje_actualizada', (data) => {
     })
 })
 
-// Mostrar los usuarios conectados y desconectados
+// Mostrar los usuarios conectados
 socket.on('estado_del_usuario', (usuarios) => {
     listaUsuarios.innerHTML = '<h1> Usuarios En Linea! </h1>'
 
     // itero cada objeto (usuarios)
     for(const id in usuarios) {
+        const user = usuarios[id]
         const p = document.createElement('p')
         p.dataset.id = id
-        p.innerText = `${usuarios[id]}`
-        p.style.color = 'green'
+        p.innerText = user.nombre
+        p.style.color = user.conectado ? 'green' : 'red'
         listaUsuarios.appendChild(p)
     }
 })
