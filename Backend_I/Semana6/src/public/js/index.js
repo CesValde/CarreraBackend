@@ -54,7 +54,7 @@ socket.on('lista_de_mensaje_actualizada', (data) => {
 
 // Mostrar los usuarios conectados y desconectados
 socket.on('estado_del_usuario', (usuarios) => {
-    listaUsuarios.innerHTML = ''
+    listaUsuarios.innerHTML = '<h1> Usuarios En Linea! </h1>'
 
     // itero cada objeto (usuarios)
     for(const id in usuarios) {
