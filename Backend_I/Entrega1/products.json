@@ -1,0 +1,158 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "title": "Auriculares Redragon Pandora H350",
+      "description": "Auriculares gamer con sonido 7.1 y micrófono retráctil.",
+      "code": "AUR001",
+      "price": 45.99,
+      "status": true,
+      "stock": 25,
+      "category": "Periféricos",
+      "thumbnails": [
+        "images/pandora-h350-1.jpg",
+        "images/pandora-h350-2.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Teclado Mecánico Redragon Kumara K552",
+      "description": "Teclado mecánico compacto con retroiluminación RGB.",
+      "code": "TEC002",
+      "price": 59.99,
+      "status": true,
+      "stock": 30,
+      "category": "Periféricos",
+      "thumbnails": [
+        "images/kumara-k552-1.jpg",
+        "images/kumara-k552-2.jpg"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Mouse Logitech G203 Lightsync",
+      "description": "Mouse gamer RGB con sensor de 8000 DPI.",
+      "code": "MOU003",
+      "price": 29.99,
+      "status": true,
+      "stock": 40,
+      "category": "Periféricos",
+      "thumbnails": [
+        "images/g203-1.jpg",
+        "images/g203-2.jpg"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Monitor Samsung Odyssey G4 240Hz",
+      "description": "Monitor gaming 1080p con panel IPS de 240Hz.",
+      "code": "MON004",
+      "price": 279.99,
+      "status": true,
+      "stock": 15,
+      "category": "Monitores",
+      "thumbnails": [
+        "images/odyssey-g4-1.jpg",
+        "images/odyssey-g4-2.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Procesador AMD Ryzen 5 5500",
+      "description": "Procesador de 6 núcleos y 12 hilos con excelente rendimiento gaming.",
+      "code": "CPU005",
+      "price": 139.99,
+      "status": true,
+      "stock": 18,
+      "category": "Componentes",
+      "thumbnails": [
+        "images/ryzen-5500-1.jpg",
+        "images/ryzen-5500-2.jpg"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Placa de Video RX 5700 XT",
+      "description": "GPU de alto rendimiento con 8GB GDDR6 ideal para gaming 1440p.",
+      "code": "GPU006",
+      "price": 349.99,
+      "status": true,
+      "stock": 10,
+      "category": "Componentes",
+      "thumbnails": [
+        "images/rx5700xt-1.jpg",
+        "images/rx5700xt-2.jpg"
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Fuente de Poder Corsair RM750e",
+      "description": "Fuente modular 80+ Gold de 750W para alto rendimiento.",
+      "code": "PSU007",
+      "price": 109.99,
+      "status": true,
+      "stock": 22,
+      "category": "Componentes",
+      "thumbnails": [
+        "images/rm750e-1.jpg",
+        "images/rm750e-2.jpg"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Memoria RAM Kingston Fury 16GB (2x8GB) 3200MHz",
+      "description": "Kit de memorias DDR4 de alta velocidad para gaming y multitarea.",
+      "code": "RAM008",
+      "price": 74.99,
+      "status": true,
+      "stock": 35,
+      "category": "Componentes",
+      "thumbnails": [
+        "images/fury-16gb-1.jpg",
+        "images/fury-16gb-2.jpg"
+      ]
+    },
+    {
+      "id": "9",
+      "title": "SSD Kingston NV2 1TB NVMe",
+      "description": "Unidad de estado sólido M.2 NVMe con excelente velocidad y capacidad.",
+      "code": "SSD009",
+      "price": 89.99,
+      "status": true,
+      "stock": 28,
+      "category": "Almacenamiento",
+      "thumbnails": [
+        "images/nv2-1tb-1.jpg",
+        "images/nv2-1tb-2.jpg"
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Gabinete NZXT H510 Flow",
+      "description": "Gabinete ATX con flujo de aire optimizado y diseño minimalista.",
+      "code": "CASE010",
+      "price": 99.99,
+      "status": true,
+      "stock": 12,
+      "category": "Gabinetes",
+      "thumbnails": [
+        "images/h510flow-1.jpg",
+        "images/h510flow-2.jpg"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Dualsense PS5",
+      "description": "Mando inalambrico Dualsense PS5",
+      "code": "DUAL11",
+      "price": 120.99,
+      "status": true,
+      "stock": 80,
+      "category": "Periféricos",
+      "thumbnails": [
+        "images/dualsense-ps5-1.jpg",
+        "images/dualsense-ps5-2.jpg"
+      ]
+    }
+  ]
+}
