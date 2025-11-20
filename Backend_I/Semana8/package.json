@@ -1,0 +1,16 @@
+{
+   "name": "semana8",
+   "version": "1.0.0",
+   "description": "**Mongoose** es una herramienta esencial en el desarrollo de aplicaciones **Node.js** que interactúan con bases de datos **MongoDB**.  \r Se trata de un **ODM (Object Document Mapping)**, lo que significa que permite mapear documentos de MongoDB a objetos en nuestra aplicación, facilitando la gestión de datos y simplificando las operaciones CRUD (**Create, Read, Update, Delete**).",
+   "main": "app.js",
+   "type": "module",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "express": "^5.1.0"
+   }
+}
