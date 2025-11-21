@@ -27,5 +27,5 @@ app.get('/', (req, res) => {
     res.send("Bienvenido!")
 })
 
-/* 'Todas las rutas que estén dentro de router van a responder cuando el path empiece con /api/users.' */
+/* 'Todas las rutas que estén dentro de router van a responder cuando el path empiece con /api/student.' */
 app.use('/api/student', router)
