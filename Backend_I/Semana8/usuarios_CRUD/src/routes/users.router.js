@@ -7,7 +7,7 @@ export const router = Router()
 router.get('/', async(req, res) => {
    try {
       const users = await userModel.find()
-      res.send({ result: "Success", payload: users })
+      res.status(200).send({ result: "Success", payload: users })
    }
    catch(error) {
       console.log(`Cannot get the user ${error}`)
@@ -24,7 +24,7 @@ router.post('/create', async(req, res) => {
       }
 
       const result = await userModel.create({ first_name, last_name, email })
-      res.status(201).send({ status: "success", payload: result })
+      res.status(201).send({ status: "Success", payload: result })
 
    } catch(error) {
       console.error(error)
@@ -48,7 +48,7 @@ router.put('/:uid', async (req, res) => {
          { $set: userToReplace }
       )
 
-      res.send({ status: "Actualizado", payload: result })
+      res.status(200).send({ status: "Actualizado", payload: result })
 
    } catch(error) {
       console.error(error)
@@ -62,7 +62,7 @@ router.delete('/:uid', async(req, res) => {
    try {
       const { uid } = req.params
       const result = await userModel.deleteOne({ _id: uid })
-      res.send({ status: "Borrado", payload: result })
+      res.status(200).send({ status: "Borrado", payload: result })
 
    } catch(error) {
       console.error(error)
