@@ -8,8 +8,7 @@ router.get('/', async(req, res) => {
    try {
       const students = await studentModel.find()
       res.status(200).send({ result: "Success", payload: students })
-   }
-   catch(error) {
+   } catch(error) {
       console.log(`Cannot get the user ${error}`)
    }
 })
