@@ -1,0 +1,12 @@
+<div class="container"> 
+   <h1>Productos en tiempo real</h1>
+
+   <div class="lista-productos">
+   </div>
+   
+</div>
+
+{{!-- PRIMERO SIEMPRE EL socket.io --}}
+<script src="/socket.io/socket.io.js"></script>
+{{!-- Express ya expone la carpeta public como raíz pública, así que solo se accede con /js/.... --}}
+<script src="/js/logic.js"></script>

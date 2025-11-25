@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "title": "Iphone 15 PRO MAX",
+      "description": "Iphone 15 PRO MAX, 256GB Pink",
+      "code": "IPH15",
+      "price": 799.99,
+      "status": true,
+      "stock": 30,
+      "category": "Celular",
+      "thumbnails": [
+        "images/iphone-15-pro-max-1.jpg",
+        "images/iphone-15-pro-max-2.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "RTX 5090",
+      "description": "GP",
+      "code": "GPU4080",
+      "price": 999.99,
+      "status": true,
+      "stock": 30,
+      "category": "Tecnologia",
+      "thumbnails": [
+        "images/rtc-4080-1.jpg",
+        "images/rtc-4080-2.jpg"
+      ]
+    }
+  ]
+}

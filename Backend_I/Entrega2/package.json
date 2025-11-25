@@ -1,0 +1,22 @@
+{
+    "name": "entrega1",
+    "version": "1.0.0",
+    "description": "��#\u0000 \u0000E\u0000n\u0000t\u0000r\u0000e\u0000g\u0000a\u00001\u0000",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon src/app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^5.1.0",
+        "express-handlebars": "^8.0.3",
+        "socket.io": "^4.8.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
