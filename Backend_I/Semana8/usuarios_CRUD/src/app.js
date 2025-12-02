@@ -16,7 +16,7 @@ async function connectMongoose() {
    try {
       await mongoose.connect(URL)
       console.log("Conectado a MongoDB");
-   } catch(error) {
+   } catch (error) {
       console.error(`Error conectando a MongoDB: ${error}`);
    }
 }
@@ -24,7 +24,7 @@ connectMongoose()
 
 // ruta principal 
 app.get('/', (req, res) => {
-    res.send("Bienvenido!")
+   res.send("Bienvenido!")
 })
 
 /* 'Todas las rutas que estén dentro de router van a responder cuando el path empiece con /api/users.' */
