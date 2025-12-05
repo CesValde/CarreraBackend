@@ -1,13 +1,3 @@
-// Obtener params de la URL
-/* const urlParams = new URLSearchParams(window.location.search)
-
-const socket = io({
-   query: {
-      limit: urlParams.get("limit") || 10,
-      page: urlParams.get("page") || 1
-   }
-}) */
-
 // Seleccionar un único contenedor
 const listaProductos = document.querySelector('.product-list')
 listaProductos.innerHTML = ''  // limpiar lista
@@ -36,35 +26,6 @@ listaProductos.querySelectorAll('button').forEach(button => {
       addToCart(button.dataset.pid)
    })
 })
-
-// Escuchar lista de productos desde el servidor
-/* socket.on('lista_productos', (products) => {
-   listaProductos.innerHTML = ''  // limpiar lista
-
-   products.forEach(product => {
-      const card = document.createElement('div')
-      card.classList.add('product-card')
-
-      card.innerHTML = `   
-         <img src="/${product.thumbnails}">
-         <h2>${product.title}</h2> 
-         <section> 
-            <small> ${product.description} </small> 
-            <span> $${product.price} </span>
-            <button data-pid="${product._id}">Agregar al carrito</button>
-         </section>
-      `
-
-      listaProductos.appendChild(card)
-   })
-
-   // Agregar listener a los botones
-   listaProductos.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', () => {
-         addToCart(button.dataset.pid)
-      })
-   })
-}) */
 
 let cartId = localStorage.getItem("cartId") || null
 async function addToCart(pid) {

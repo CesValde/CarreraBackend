@@ -1,20 +1,20 @@
 import { Router } from "express"
 import { ProductManager } from "../ProductManager.js"
 import { CartManager } from "../CartManager.js"
-import { auth } from '../app.js'
+import { requireLogin } from '../middlewares/auth.middleware.js'
 
 const router = Router()
 const productManager = new ProductManager()
 const cartManager = new CartManager()
 
 // Página principal de productos
-router.get("/", auth, async (req, res) => {
+router.get("/", requireLogin, async (req, res) => {
    const result = await productManager.getProducts(req.query)
    res.render("index", { products: result.payload, pagination: result })
 })
 
 // Vista de carrito
-router.get("/cart/:cid", auth, async (req, res) => {
+router.get("/cart/:cid", requireLogin, async (req, res) => {
    const { cid } = req.params
 
    // Llamás al método de tu clase
@@ -34,21 +34,8 @@ router.get("/cart/:cid", auth, async (req, res) => {
    })
 })
 
-// Login -> hacer por la URL
-router.get('/login', (req, res) => {
-   const { user, password } = req.query
-
-   if (user !== "cesar" || password !== '8') {
-      res.send("User or password incorrect")
-   } else {
-      req.session.user = user
-      req.session.admin = false
-      res.send('Login ok')
-   }
-})
-
 // endpoints para admins
-router.get('/zonaprivada', auth, (req, res) => {
+router.get('/zonaprivada', requireLogin, (req, res) => {
    if (req.session.user === "coder" && req.session.admin) {
       res.send('Bienvenido a la zona privada')
    }
