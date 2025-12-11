@@ -1,0 +1,15 @@
+<main>
+   <h1> Nuestra lista de productos! </h1>
+
+   {{! Renderizar los productos disponibles }}
+   <div class="product-list">
+   </div>
+</main>
+
+{{!--  --}}
+<script>
+   window.serverData = {
+      products: {{{json products}}},
+      pagination: {{{json pagination}}}
+   }
+</script>

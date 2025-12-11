@@ -1,0 +1,42 @@
+import mongoose from "mongoose"
+
+/* Coleccion en la base de datos */
+const usersCollection = "users"
+
+const userSchema = new mongoose.Schema({
+   /* Estructura del objeto */
+   first_name: {
+      type: String,
+      required: true,
+   },
+   last_name: {
+      type: String,
+      required: true,
+      index: true,
+   },
+   email: {
+      type: String,
+      required: true,
+      unique: true,
+   },
+   age: {
+      type: Number,
+      required: false,
+   },
+   password: {
+      type: String,
+      required: function () {
+         return !this.githubid
+      },
+   },
+   githubid: {
+      type: String,
+   },
+   role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+   },
+}, { timestamps: true })
+
+export const userModel = mongoose.model(usersCollection, userSchema)
