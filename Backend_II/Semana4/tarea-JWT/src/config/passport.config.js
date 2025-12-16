@@ -1,16 +1,12 @@
 import passport from "passport"
-import { userModel } from "../models/user.model.js"
 import jwt from "passport-jwt"
 
 const JWTStrategy = jwt.Strategy
 const ExtractJWT = jwt.ExtractJwt
 
 const cookieExtractor = (req) => {
-   let token = null
-   if (req && req.headers) {
-      token = req.headers.authorization.split("")[1]
-   }
-   return token
+   if (!req || !req.signedCookies) return null
+   return req.signedCookies.currentUser || null
 }
 
 /**
@@ -38,14 +34,4 @@ export const initializePassport = () => {
          }
       )
    )
-
-   /* No usar estas de abajo pq se usan con session -> no usar con JWT */
-   passport.serializeUser((user, done) => {
-      done(null, user._id)
-   })
-
-   passport.deserializeUser(async (id, done) => {
-      let user = await userModel.findById(id)
-      done(null, user)
-   })
 }
