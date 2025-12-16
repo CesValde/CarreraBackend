@@ -1,0 +1,25 @@
+{
+   "name": "tarea-jwt",
+   "version": "1.0.0",
+   "description": "",
+   "main": "app.js",
+   "type": "module",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "dev": "nodemon ./src/app.js"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "bcrypt": "^6.0.0",
+      "cookie-parser": "^1.4.7",
+      "dotenv": "^17.2.3",
+      "express": "^5.2.1",
+      "express-handlebars": "8.0.4",
+      "mongoose": "^9.0.1",
+      "nodemon": "^3.1.11",
+      "passport": "^0.7.0",
+      "passport-jwt": "^4.0.1"
+   }
+}
