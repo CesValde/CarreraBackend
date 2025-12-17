@@ -21,7 +21,9 @@ router.get(
    passportCall("jwt"),
    authorization("user"),
    async (req, res) => {
-      res.render("current")
+      res.render("current", {
+         user: req.user
+      })
    }
 )
 
