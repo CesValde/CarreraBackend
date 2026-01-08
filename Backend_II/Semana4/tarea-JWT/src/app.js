@@ -54,7 +54,7 @@ initializePassport()
 
 // Inicializa Passport en cada request
 app.use(passport.initialize())
-// NO USAR es de express session no se usa con JWT!!!! app.use(passport.session())
+// NO USAR -----> es de express session no se usa con JWT!!!! app.use(passport.session())
 
 const connectAtlasMongoDB = async () => {
    try {
