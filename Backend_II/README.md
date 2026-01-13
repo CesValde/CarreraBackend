@@ -21,23 +21,23 @@
 - Aplicación de JWT en el Desarrollo de Aplicaciones
 - Guía para Integrar JWT en una Aplicación Express
 
-<!-- # Semana 4
+# Semana 4
 
-[****](./Semana1/)
+[**Integracion avanzada con JWT y Passport**](./Semana4/README.md)
 
-- 
-- 
-- 
+- Fundamentos y Configuración de Autenticación con JWT y Passport
+- Middleware Personalizado
+- Aplicación Práctica y Conclusiones
 
 # Semana 5
 
-[****](./Semana1/)
+[****](./Semana5/README.md)
 
-- 
-- 
-- 
+- Configuración Avanzada de Routers y Variables de Entorno
+- Process y Manejo de variables
+- Manejo de Políticas de Autorización y Reflexiones Finales
 
-# Semana 6
+<!-- # Semana 6
 
 [****](./Semana1/)
 
