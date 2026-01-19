@@ -288,14 +288,16 @@ Para integrar correctamente estas capas dentro de una aplicación backend, se re
 Crear un archivo de rutas, por ejemplo `userRoutes.js`, donde se definan los endpoints y se enlacen con los controladores correspondientes.
 
 ```js
-const express = require("express")
-const router = express.Router()
-const userController = require("../controllers/userController")
+// routes/user.routes.js
+import { Router } from "express"
+import * as userController from "../controllers/userController.js"
+
+const router = Router()
 
 router.get("/users", userController.getAllUsers)
 router.post("/users", userController.createUser)
 
-module.exports = router
+export default router
 ```
 
 ---
@@ -305,12 +307,22 @@ module.exports = router
 Los controladores manejan la lógica de la solicitud y delegan el acceso a datos a la capa de servicios.
 
 ```js
-const userService = require("../services/userService")
+// controllers/userController.js
+import * as userService from "../services/userService.js"
 
-exports.getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
    try {
       const users = await userService.getUsers()
       res.json(users)
+   } catch (error) {
+      res.status(500).send(error.message)
+   }
+}
+
+export const createUser = async (req, res) => {
+   try {
+      const user = await userService.createUser(req.body)
+      res.status(201).json(user)
    } catch (error) {
       res.status(500).send(error.message)
    }
@@ -324,10 +336,15 @@ exports.getAllUsers = async (req, res) => {
 Los servicios encapsulan la lógica de negocio reutilizable y actúan como puente entre los controladores y la persistencia.
 
 ```js
-const userDao = require("../persistence/userDao")
+// services/userService.js
+import * as userDao from "../persistence/userDao.js"
 
-exports.getUsers = async () => {
+export const getUsers = async () => {
    return await userDao.getAllUsers()
+}
+
+export const createUser = async (userData) => {
+   return await userDao.createUser(userData)
 }
 ```
 
@@ -339,10 +356,19 @@ En esta capa se definen las interacciones directas con la base de datos.
 Puede implementarse utilizando un ORM o consultas SQL directas.
 
 ```js
-const db = require("./db") // Configuración de base de datos
+// persistence/userDao.js
+import db from "./db.js"
 
-exports.getAllUsers = async () => {
+export const getAllUsers = async () => {
    return db.query("SELECT * FROM users")
+}
+
+export const createUser = async (userData) => {
+   const { name, email } = userData
+   return db.query("INSERT INTO users (name, email) VALUES (?, ?)", [
+      name,
+      email
+   ])
 }
 ```
 
