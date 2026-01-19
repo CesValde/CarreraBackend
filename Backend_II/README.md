@@ -31,21 +31,21 @@
 
 # Semana 5
 
-[****](./Semana5/README.md)
+[**Ruteo avanzando y Proceso Principal del servidor**](./Semana5/README.md)
 
 - Configuración Avanzada de Routers y Variables de Entorno
 - Process y Manejo de variables
 - Manejo de Políticas de Autorización y Reflexiones Finales
 
-<!-- # Semana 6
+# Semana 6
 
-[****](./Semana1/)
+[**Arquitectura de Capas y Patrones de Diseño Backend**](./Semana6/README.md)
 
-- 
-- 
-- 
+- Fundamentos y buenas prácticas en la arquitectura Backend
+- Buenas prácticas
+- Implementación Práctica y Aplicación de la Arquitectura de Capas
 
-# Semana 7
+<!-- # Semana 7
 
 [****](./Semana1/)
 
@@ -58,4 +58,4 @@
 [****](./Semana1/)
 
 - 
--  -->
+-   -->
