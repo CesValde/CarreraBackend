@@ -5,6 +5,7 @@ import { userModel } from "../models/user.model.js"
 const JWTStrategy = jwt.Strategy
 const ExtractJWT = jwt.ExtractJwt
 
+// extractor de JWT desde cookies firmadas
 const cookieExtractor = (req) => {
    if (!req || !req.signedCookies) return null
    return req.signedCookies.currentUser || null
@@ -42,9 +43,14 @@ export const initializePassport = () => {
       "current",
       new JWTStrategy(
          {
+            // Define de dónde se obtiene el JWT. --> cookie en este caso
             jwtFromRequest: ExtractJWT.fromExtractors([cookieExtractor]),
             secretOrKey: process.env.JWT_SECRET
          },
+
+         // se ejecuta solo si el JWT es válido.
+         // jwt_payload --> contenido decodificado del token
+         // done(error, user, info)
          async (jwt_payload, done) => {
             try {
                const user = await userModel.findById(jwt_payload.id).lean()
@@ -52,7 +58,6 @@ export const initializePassport = () => {
 
                return done(null, user)
             } catch (error) {
-               console
                return done(error, false)
             }
          }
