@@ -1,11 +1,11 @@
-import userDAO from "../repositories/user.repository.js"
+import userServices from "../services/users.service.js"
 import jwt from "jsonwebtoken"
 import config from "../config/config.js"
 
 export const submitLogin = async (req, res) => {
    try {
       const { email, password } = req.body
-      const user = await userDAO.login(email, password)
+      const user = await userServices.login(email, password)
 
       const token = jwt.sign(
          {
