@@ -1,6 +1,6 @@
 import { userModel } from "../models/user.model.js"
 import bcrypt from "bcrypt"
-import AppError from "../Error/error.js"
+import AppError from "../error/error.js"
 
 class UsersDAO {
    async getAll() {

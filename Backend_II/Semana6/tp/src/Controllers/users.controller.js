@@ -3,7 +3,7 @@ import userDAO from "../repositories/user.repository.js"
 export const getAllUsers = async (req, res) => {
    try {
       const users = await userDAO.getAll()
-      return res.json(users)
+      return res.status(200).json(users)
    } catch (error) {
       return res.status(error.statusCode || 500).json({
          error: error.statusCode ? error.message : "Internal server error"
@@ -55,7 +55,7 @@ export const updateUser = async (req, res) => {
          age,
          role
       )
-      return res.status(201).json({
+      return res.status(200).json({
          message: "User update successfully",
          user
       })
@@ -71,7 +71,7 @@ export const deleteUser = async (req, res) => {
 
    try {
       const user = await userDAO.delete(uid)
-      return res.status(201).json({
+      return res.status(204).json({
          message: "User delete successfully",
          user
       })
