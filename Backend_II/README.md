@@ -3,7 +3,7 @@
 [**Introduccion a Express y MongoDB**](./Semana1/README.md)
 
 - Introducción a Backend y Herramientas Principales
-- Configuración y Desarrollo de APIs REST 
+- Configuración y Desarrollo de APIs REST
 
 # Semana 2
 
@@ -45,17 +45,17 @@
 - Buenas prácticas
 - Implementación Práctica y Aplicación de la Arquitectura de Capas
 
-<!-- # Semana 7
+# Semana 7
+
+[**Persistencia y Desarrollo de un Servidor Web Completo**](./Semana7/README.md)
+
+- Implementación de Patrones y Conexión en Arquitectura Backend
+- Desarrollo de Rutas, Controladores y Frontend
+- Reflexiones finales de la Unidad
+
+<!-- # Semana 8
 
 [****](./Semana1/)
 
-- 
-- 
-- 
-
-# Semana 8
-
-[****](./Semana1/)
-
-- 
+-
 -   -->
