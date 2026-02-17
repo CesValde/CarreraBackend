@@ -37,8 +37,6 @@ class UsersDAO {
 
    async delete(id) {
       return await userModel.findByIdAndDelete(id)
-      // await usersDAO.deleteOne({ _id: id })
-      
    }
 }
 
