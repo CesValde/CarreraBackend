@@ -68,7 +68,7 @@ Este enfoque lo convierte en una excelente opción para proyectos backend profes
 
 ### Introducción
 
-:contentReference[oaicite:0]{index=0} es un framework progresivo de **Node.js** utilizado para construir aplicaciones backend **eficientes, escalables y mantenibles**. Está basado en **TypeScript** y adopta principios de:
+ NestJs es un framework progresivo de **Node.js** utilizado para construir aplicaciones backend **eficientes, escalables y mantenibles**. Está basado en **TypeScript** y adopta principios de:
 
 - Programación Orientada a Objetos (OOP)
 - Programación Funcional (FP)
@@ -210,7 +210,7 @@ Esta estructura modular y bien definida es clave para construir aplicaciones bac
 La autenticación es un componente crucial en la mayoría de las aplicaciones web, ya que permite **identificar y verificar a los usuarios** antes de conceder acceso a recursos protegidos.  
 Una de las formas más comunes y seguras de implementar autenticación en aplicaciones modernas es mediante **JWT (JSON Web Token)**.
 
-:contentReference[oaicite:0]{index=0} facilita la integración de JWT gracias a su arquitectura modular y a su compatibilidad nativa con **Passport**, permitiendo manejar la autenticación de forma eficiente, escalable y segura.
+NestJs facilita la integración de JWT gracias a su arquitectura modular y a su compatibilidad nativa con **Passport**, permitiendo manejar la autenticación de forma eficiente, escalable y segura.
 
 ---
 
@@ -400,7 +400,7 @@ Ejemplos comunes:
 ### Introducción
 
 El **testing** es una parte fundamental del desarrollo de software, ya que permite garantizar que el código funcione correctamente y que los cambios no introduzcan errores inesperados.  
-En aplicaciones backend desarrolladas con :contentReference[oaicite:0]{index=0}, el testing se ve reforzado por su arquitectura modular y su fuerte integración con herramientas modernas de pruebas.
+En aplicaciones backend desarrolladas con NestJs, el testing se ve reforzado por su arquitectura modular y su fuerte integración con herramientas modernas de pruebas.
 
 En NestJS, las estrategias de testing se dividen principalmente en:
 
@@ -435,7 +435,7 @@ Esto permite detectar errores de lógica tempranamente y facilita el refactor si
 
 #### Herramientas
 
-NestJS se integra de forma nativa con :contentReference[oaicite:1]{index=1}, un framework de testing que proporciona:
+NestJS se integra de forma nativa con Supertest, un framework de testing que proporciona:
 
 - Mocks
 - Spies
