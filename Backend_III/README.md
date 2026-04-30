@@ -39,3 +39,28 @@
 - Principios de Seguridad en Desarrollo Backend
 - Documentación de API con Swagger
 - Aplicación Práctica y Ejercicios
+
+# Semana 6
+
+[**Pruebas y Escalabilidad en Backend**](./Semana6/README.md)
+
+- Fundamentos de Testing Unitario y Avanzado
+- Testing de Integración y Funcional
+- Estrategias Avanzadas de Testing y Escalabilidad
+
+# Semana 7
+
+[**Desarrollo Backend con NestJS**](./Semana7/README.md)
+
+- Introducción y Configuración de NestJS
+- Arquitectura y Componentes Principales de NestJS
+- Autenticación y Seguridad en NestJS
+- Testing y Escalabilidad
+
+# Semana 8
+
+[**Práctica Integradora y Despliegue de Aplicaciones Backend**](./Semana8/README.md)
+
+- Práctica Integradora Backend
+- Despliegue de Aplicaciones Backend
+- Optimización y Escalabilidad en Backend
